@@ -1,0 +1,73 @@
+﻿@model IEnumerable<WebShopping.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section styles{
+
+  
+    <link href="~/lib/datatables/media/css/jquery.datatables.min.css" rel="stylesheet" />
+}
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table" id="productList">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EnglishName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArabicName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SellingPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasingPriceForPublic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasingPriceForSales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+          
+        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+    </tbody>
+</table>
+
+    @section Scripts{
+
+    <script src="~/lib/datatables/media/js/jquery.datatables.min.js"></script>
+   
+    <script src="~/lib/alpha.datatable/alpha.datatable.js"></script>
+  <script>
+      $(document).ready(function(){
+            tablePlugin("#productList", "/Products/GetProducts", [{ data: "englishName" },
+            { data: "arabicName" },
+            { data: "sellingPrice" }, 
+            { data: "purchasingPriceForPublic" },
+            { data: "purchasingPriceForSales" }, 
+            { data: "quantity" }, 
+            { data: "id" , render: function(data){
+                    return `<a class='btn btn-primary' href='/Products/Edit/${data}'> Edit </a> | <a href='/Products/Delete/${data}' class='btn btn-danger'> Delete </a> `
+
+            } }])
+      })
+       
+  </script>
+
+
+  
+
+}
+           

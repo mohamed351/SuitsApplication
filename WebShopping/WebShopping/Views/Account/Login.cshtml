@@ -1,0 +1,78 @@
+﻿@model WebShopping.ViewModel.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Login </title>
+   
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        a{
+            padding:0px;
+            margin:0px;
+            box-sizing:border-box;
+        }
+
+        form {
+           display:flex;
+           justify-content:center;
+           align-items:center;
+           height:100vh;
+           flex-direction:column;
+           align-content:center;
+       }
+       header{
+           text-align:center;
+       }
+
+        .input-container{
+            width:35%;
+        }
+
+        .btn-full{
+            width:100%;
+        }
+    </style>
+    </head>
+    <body>
+    <form asp-action="Login" asp-controller="Account" method="post">
+        @Html.ValidationSummary()
+        @Html.AntiForgeryToken()
+        <header>
+        <h2>Login</h2>
+    </header>
+
+   
+  
+        <div class="input-container">
+        <div class="form-group">
+            <label>User Name</label>
+            <input asp-for="UserName" type="text" class="form-control" placeholder="UserName" />
+        </div>
+
+
+        <div class="form-group">
+                <label>Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+        </div>
+
+        <div>
+            <label>
+                <input type="checkbox" asp-for="RememberMe" /> Remember Me
+            </label>
+        </div>
+
+        <div class="mt-2 form-group">
+            <button type="submit" class="btn btn-success btn-full"> Login</button>
+        </div>
+
+    </div>
+    </form>
+
+    </body>
+</html>
+

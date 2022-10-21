@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section styles{
+    <style>
+        a{
+            text-decoration:none;
+            color:black;
+        }
+    </style>
+}
+
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card">
+            <a asp-action="Index" asp-controller="SubCategories">
+            <div class="card-body">
+                        <h6> <i class="bi bi-bookmark"></i> Sub Categoty</h6>
+              
+            </div>
+            </a>
+        </div>
+    </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <a asp-action="Index" asp-controller="Categories">
+                    <div class="card-body">
+                        <h6> <i class="bi bi-bookmark"></i> Category</h6>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card">
+                <a asp-action="Index" asp-controller="Products">
+                    <div class="card-body">
+                        <h6> <i class="bi bi-bookmark"></i> Products</h6>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <a asp-action="Index" asp-controller="User">
+                    <div class="card-body">
+                        <h6> <i class="bi bi-bookmark"></i> User</h6>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+
+</div>

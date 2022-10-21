@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@section styles{
+
+
+    <link href="~/lib/datatables/media/css/jquery.datatables.min.css" rel="stylesheet" />
+}
+
+
+    <table id="userList">
+    <thead>
+        <tr>
+            <th>Phone</th>
+            <th>Doctor Name</th>
+            <th>Phamacy Name</th>
+            <th>Address</th>
+            <th>Approved</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+
+@section scripts{
+
+    <script src="~/lib/datatables/media/js/jquery.datatables.min.js"></script>
+
+    <script src="~/lib/alpha.datatable/alpha.datatable.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          var currentUserList =  tablePlugin("#userList", "/User/GetUser", [
+            { data: "phoneNumber" },
+            { data: "doctorName" },
+            { data: "pharmacyName" },
+            { data: "address" },
+            { data: "isApprove" ,render(result, row, display){
+              
+                if(result){
+                            return `<input type='checkbox' class='changeStatus' data-id=${display.id} checked />`
+                }
+                else{
+                    return `<input type='checkbox' class='changeStatus' data-id=${display.id}  />`
+                }
+
+            } }
+           ]);
+
+            $(document).on("click",".changeStatus", function(){
+                var currentId = $(this).attr("data-id");
+                $.ajax({
+                    url: "/User/Approve",
+                    method:"POST",
+                    contentType:"application/json",
+                    data: JSON.stringify(currentId),
+                    success:function(){
+                        swal("The Status has changed","","success");
+                        currentUserList.ajax.reload();
+                    }
+                })
+
+            });
+
+        })
+    </script>
+}
