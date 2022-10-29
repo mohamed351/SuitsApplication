@@ -1,20 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping/models/adding_cart.dart';
 import 'package:shopping/models/product_list.dart';
+import 'package:shopping/providers/cart_provider.dart';
 
 import '../widgets/bottom_cart_control.dart';
 
-class ProductDetail extends StatelessWidget {
-  int quantity = 0;
+class ProductDetail extends StatefulWidget {
   static const routerName = "/productDetails";
 
   ProductDetail({Key? key}) : super(key: key);
 
   @override
+  State<ProductDetail> createState() => _ProductDetailState();
+}
+
+class _ProductDetailState extends State<ProductDetail> {
+  AddingCart _cart = new AddingCart(productID: 0, quantity: 0);
+
+  @override
   Widget build(BuildContext context) {
     final routerArgs = ModalRoute.of(context)?.settings.arguments as Product;
+    _cart.productID = routerArgs.id!;
+
     return Scaffold(
-      bottomSheet: BottomCartControl(),
-      appBar: AppBar(title: Text("Product Details")),
+      bottomSheet: BottomCartControl(
+        decreseQuantity: () {
+          setState(() {
+            if (_cart.quantity >= 1) {
+              _cart.quantity--;
+            }
+          });
+        },
+        increseQuantity: () {
+          setState(() {
+            _cart.quantity++;
+          });
+        },
+        quantity: _cart.quantity,
+        submitCart: () {
+          Provider.of<CartProvider>(context, listen: false).AddToCart(_cart);
+        },
+      ),
+      appBar: AppBar(
+        title: Text("Product Details"),
+        actions: [
+          IconButton(
+              onPressed: () {}, icon: Icon(Icons.production_quantity_limits))
+        ],
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,

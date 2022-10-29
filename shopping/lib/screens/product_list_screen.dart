@@ -47,20 +47,34 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         drawer: AppDrawer(),
-        appBar: AppBar(title: const Text("Product List")),
-        body: PagedGridView<int, Product>(
-          showNewPageProgressIndicatorAsGridChild: false,
-          showNewPageErrorIndicatorAsGridChild: false,
-          showNoMoreItemsIndicatorAsGridChild: false,
-          pagingController: _pagingController,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 150 / 150,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-          ),
-          builderDelegate: PagedChildBuilderDelegate<Product>(
-            itemBuilder: (context, item, index) => ProductItem(item),
+        appBar: AppBar(
+          title: const Text("Product List"),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.production_quantity_limits),
+              onPressed: () {},
+            )
+          ],
+        ),
+        body: RefreshIndicator(
+          onRefresh: () async {
+            Provider.of<ProductProvider>(context, listen: false).Refresh();
+            _pagingController.refresh();
+          },
+          child: PagedGridView<int, Product>(
+            showNewPageProgressIndicatorAsGridChild: false,
+            showNewPageErrorIndicatorAsGridChild: false,
+            showNoMoreItemsIndicatorAsGridChild: false,
+            pagingController: _pagingController,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 150 / 150,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 2,
+            ),
+            builderDelegate: PagedChildBuilderDelegate<Product>(
+              itemBuilder: (context, item, index) => ProductItem(item),
+            ),
           ),
         ));
   }

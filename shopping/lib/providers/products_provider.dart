@@ -15,7 +15,6 @@ class ProductProvider with ChangeNotifier {
   void addProduct(Product product) {}
 
   Future<List<Product>> initailLoad(int lenght) async {
-    print(token);
     var url = await http.get(
         Uri.parse(Constaint.baseURL +
             "/api/Products?start=${pageIndex * lenght}&lenght=$lenght"),
@@ -28,5 +27,10 @@ class ProductProvider with ChangeNotifier {
     }
     pageIndex++;
     return productList.data!;
+  }
+
+  void Refresh() {
+    pageIndex = 0;
+    list = [];
   }
 }

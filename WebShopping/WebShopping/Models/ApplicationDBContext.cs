@@ -20,5 +20,15 @@ namespace WebShopping.Models
         public DbSet<SubCategory> SubCategories { get; set; }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
+
+        public DbSet<Cart> Carts { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Cart>()
+                .HasKey(a => new { a.ProductID, a.UserID });
+            base.OnModelCreating(builder);
+        }
     }
 }

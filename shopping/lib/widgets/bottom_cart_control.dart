@@ -1,9 +1,15 @@
 import "package:flutter/material.dart";
 
 class BottomCartControl extends StatelessWidget {
-  const BottomCartControl({
-    Key? key,
-  }) : super(key: key);
+  VoidCallback increseQuantity;
+  VoidCallback decreseQuantity;
+  int quantity = 0;
+  VoidCallback submitCart;
+  BottomCartControl(
+      {required this.increseQuantity,
+      required this.decreseQuantity,
+      required this.quantity,
+      required this.submitCart});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +22,18 @@ class BottomCartControl extends StatelessWidget {
             Expanded(
                 flex: 2,
                 child: ElevatedButton(
-                    onPressed: () {}, child: Text("Add To Cart"))),
+                    onPressed: submitCart, child: const Text("Add To Cart"))),
             Expanded(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text("Quantity"),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    IconButton(onPressed: () {}, icon: Icon(Icons.add)),
-                    Text("0"),
-                    IconButton(onPressed: () {}, icon: Icon(Icons.remove))
+                    IconButton(
+                        onPressed: increseQuantity, icon: Icon(Icons.add)),
+                    Text(quantity.toString()),
+                    IconButton(
+                        onPressed: decreseQuantity, icon: Icon(Icons.remove))
                   ])
                 ],
               ),

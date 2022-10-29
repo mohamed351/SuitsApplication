@@ -6,6 +6,8 @@ import '../constaint/constaint.dart';
 import "../models/http_exception.dart";
 import 'package:http/http.dart' as http;
 
+import '../models/signUp.dart';
+
 class Auth with ChangeNotifier {
   String? _token;
   DateTime? _expireDate;
@@ -36,6 +38,19 @@ class Auth with ChangeNotifier {
     final prefes = await SharedPreferences.getInstance();
     prefes.clear();
     notifyListeners();
+  }
+
+  Future<bool> register(SignUp signUpForm) async {
+    final response = await http.post(
+        Uri.parse(Constaint.baseURL + "/api/Auth/register"),
+        body: json.encode(signUpForm.toJson()),
+        headers: {"Content-Type": "application/json"});
+    print(response.body);
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      throw new HttpException("Faild Register");
+    }
   }
 
   Future<void> loginUser(String phoneNumber, String password) async {
