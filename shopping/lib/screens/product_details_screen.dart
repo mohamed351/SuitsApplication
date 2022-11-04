@@ -5,6 +5,7 @@ import 'package:shopping/models/product_list.dart';
 import 'package:shopping/providers/cart_provider.dart';
 
 import '../widgets/bottom_cart_control.dart';
+import '../widgets/cart_icon_widget.dart';
 import 'cart_screen.dart';
 
 class ProductDetail extends StatefulWidget {
@@ -46,13 +47,7 @@ class _ProductDetailState extends State<ProductDetail> {
       appBar: AppBar(
         backgroundColor: Colors.purple,
         title: Text("Product Details"),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(CartScreen.routerName);
-              },
-              icon: Icon(Icons.production_quantity_limits))
-        ],
+        actions: [CartIconWidge()],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

@@ -2,11 +2,11 @@ import "package:flutter/material.dart";
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/models/product_list.dart';
-import 'package:shopping/screens/cart_screen.dart';
 import 'package:shopping/widgets/product_item_widget.dart';
 
 import '../providers/products_provider.dart';
 import '../widgets/app_drawer.dart';
+import '../widgets/cart_icon_widget.dart';
 
 class ProductListScreen extends StatefulWidget {
   static const routerName = "/product-list";
@@ -52,12 +52,8 @@ class _ProductListScreenState extends State<ProductListScreen> {
           backgroundColor: Colors.purple,
           title: const Text("Product List"),
           actions: [
-            IconButton(
-              icon: Icon(Icons.production_quantity_limits),
-              onPressed: () {
-                Navigator.of(context).pushNamed(CartScreen.routerName);
-              },
-            )
+            // )
+            CartIconWidge()
           ],
         ),
         body: RefreshIndicator(

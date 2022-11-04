@@ -22,6 +22,18 @@ class _CartScreenState extends State<CartScreen> {
         backgroundColor: Colors.purple,
         title: Text("Cart "),
       ),
+      bottomSheet: Card(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Consumer<CartProvider>(
+              builder: (context, value, child) =>
+                  Text(value.totalInvoice.toString()),
+            ),
+            ElevatedButton(onPressed: () {}, child: Text("Submit Invoice"))
+          ],
+        ),
+      ),
       body: FutureBuilder(
         future: Provider.of<CartProvider>(context, listen: false).GetCart(),
         builder: (context, snapshot) {

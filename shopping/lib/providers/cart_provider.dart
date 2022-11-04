@@ -14,15 +14,25 @@ class CartProvider with ChangeNotifier {
     return [..._cart];
   }
 
+  int get itemsLength {
+    return _cart.length;
+  }
+
+  double get totalInvoice {
+    double total = 0;
+    for (var element in _cart) {
+      total += element.totalSales!;
+    }
+    return total;
+  }
+
   Future<void> GetCart() async {
     try {
       var response = await http.get(Uri.parse("${Constaint.baseURL}/api/Cart"),
           headers: {"Authorization": "Bearer ${token}"});
-
+      print(response);
       if (response.statusCode == 200) {
         _cart = CartFromJson(response.body);
-
-        notifyListeners();
       }
     } catch (e) {
       print(e);
@@ -36,7 +46,10 @@ class CartProvider with ChangeNotifier {
           "Content-Type": "application/json",
           "Authorization": "Bearer " + token
         });
-    if (response.statusCode == 200) {}
+    if (response.statusCode == 200) {
+      print("rebuild");
+      notifyListeners();
+    }
   }
 
   Future<void> DeleteCart(int productId) async {
