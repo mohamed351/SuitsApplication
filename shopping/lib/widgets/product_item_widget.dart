@@ -11,35 +11,51 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridTile(
-      child: Image.network(this.product.imageUrl!),
-      footer: GridTileBar(
-          trailing: IconButton(
-            icon: Icon(Icons.shop),
-            onPressed: () {},
-          ),
-          title: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
+    const borderRadius = BorderRadius.all(Radius.circular(10));
+    return InkWell(
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed(ProductDetail.routerName, arguments: this.product);
+      },
+      borderRadius: borderRadius,
+      child: Container(
+        child: Column(
+          children: [
+            Expanded(
+              flex: 8,
+              child: Container(
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(borderRadius: borderRadius),
+                  child: Image.network(
+                    fit: BoxFit.cover,
+                    this.product.imageUrl!,
+                  )),
+            ),
+            Expanded(
+              flex: 1,
+              child: Text(
                 product.englishName!,
-                textAlign: TextAlign.start,
-                style: TextStyle(fontSize: 18),
+                style: const TextStyle(
+                  color: Colors.purpleAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
               ),
-              Text(
-                product.purchasingPriceForSales.toString() + "LE",
-                textAlign: TextAlign.start,
-              )
-            ],
-          ),
-          leading: IconButton(
-            icon: Icon(Icons.abc_outlined),
-            onPressed: () {
-              Navigator.of(context)
-                  .pushNamed(ProductDetail.routerName, arguments: this.product);
-            },
-          ),
-          backgroundColor: Colors.black45),
+            ),
+            Expanded(
+              flex: 1,
+              child: Text(
+                product.purchasingPriceForPublic.toString() + "LE",
+                style: const TextStyle(
+                  color: Colors.purpleAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

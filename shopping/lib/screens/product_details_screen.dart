@@ -43,6 +43,7 @@ class _ProductDetailState extends State<ProductDetail> {
         },
       ),
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: Text("Product Details"),
         actions: [
           IconButton(

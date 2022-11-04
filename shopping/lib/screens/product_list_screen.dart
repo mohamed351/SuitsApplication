@@ -48,6 +48,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
     return Scaffold(
         drawer: AppDrawer(),
         appBar: AppBar(
+          backgroundColor: Colors.purple,
           title: const Text("Product List"),
           actions: [
             IconButton(
@@ -62,12 +63,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
             _pagingController.refresh();
           },
           child: PagedGridView<int, Product>(
+            padding: EdgeInsets.only(top: 10, left: 5, right: 5),
             showNewPageProgressIndicatorAsGridChild: false,
             showNewPageErrorIndicatorAsGridChild: false,
             showNoMoreItemsIndicatorAsGridChild: false,
             pagingController: _pagingController,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 150 / 150,
+              childAspectRatio: 150 / 200,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,
