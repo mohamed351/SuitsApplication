@@ -5,6 +5,7 @@ import 'package:shopping/models/product_list.dart';
 import 'package:shopping/providers/cart_provider.dart';
 
 import '../widgets/bottom_cart_control.dart';
+import 'cart_screen.dart';
 
 class ProductDetail extends StatefulWidget {
   static const routerName = "/productDetails";
@@ -47,7 +48,10 @@ class _ProductDetailState extends State<ProductDetail> {
         title: Text("Product Details"),
         actions: [
           IconButton(
-              onPressed: () {}, icon: Icon(Icons.production_quantity_limits))
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routerName);
+              },
+              icon: Icon(Icons.production_quantity_limits))
         ],
       ),
       body: Column(

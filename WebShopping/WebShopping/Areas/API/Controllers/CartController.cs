@@ -34,6 +34,8 @@ namespace WebShopping.Areas.API.Controllers
                 a.Product.PurchasingPriceForPublic,
                 a.Product.PurchasingPriceForSales,
                 a.ProductID,
+                a.Product.ArabicName,
+                a.Product.EnglishName,
                 a.Quantity,
                 TotalSales  = a.Quantity *  a.Product.PurchasingPriceForSales,
                  TotalPublich = a.Quantity * a.Product.PurchasingPriceForPublic,
@@ -67,6 +69,20 @@ namespace WebShopping.Areas.API.Controllers
 
 
             return Ok(currentUser);
+        }
+        [HttpDelete("{ProductID?}")]
+        public async  Task<IActionResult> DeleteCart(int? ProductID)
+        {
+            var currentUser = User.GetUserId();
+
+           var cart =  context.Carts.FirstOrDefault(a => a.ProductID == ProductID && a.UserID == currentUser);
+            if(cart == null)
+            {
+                return NotFound();
+            }
+            context.Carts.Remove(cart);
+            await context.SaveChangesAsync();
+            return NoContent();
         }
 
 

@@ -4,6 +4,7 @@ import 'package:shopping/providers/auth_provider.dart';
 import 'package:shopping/providers/cart_provider.dart';
 import 'package:shopping/providers/products_provider.dart';
 import 'package:shopping/screens/auth_screen.dart';
+import 'package:shopping/screens/cart_screen.dart';
 import 'package:shopping/screens/product_details_screen.dart';
 import 'package:shopping/screens/product_list_screen.dart';
 import 'package:shopping/screens/signUp_screen.dart';
@@ -51,7 +52,8 @@ class MyApp extends StatelessWidget {
             AuthScreen.routeName: (context) => AuthScreen(),
             SplashScreen.routerName: (context) => SplashScreen(),
             ProductDetail.routerName: (context) => ProductDetail(),
-            SignupScreen.routerName: (context) => SignupScreen()
+            SignupScreen.routerName: (context) => SignupScreen(),
+            CartScreen.routerName: (context) => CartScreen()
           },
         ),
       ),

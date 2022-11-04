@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/models/product_list.dart';
+import 'package:shopping/screens/cart_screen.dart';
 import 'package:shopping/widgets/product_item_widget.dart';
 
 import '../providers/products_provider.dart';
@@ -53,7 +54,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
           actions: [
             IconButton(
               icon: Icon(Icons.production_quantity_limits),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routerName);
+              },
             )
           ],
         ),

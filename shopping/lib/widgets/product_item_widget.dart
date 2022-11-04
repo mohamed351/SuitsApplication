@@ -19,6 +19,8 @@ class ProductItem extends StatelessWidget {
       },
       borderRadius: borderRadius,
       child: Container(
+        decoration: BoxDecoration(
+            borderRadius: borderRadius, color: Colors.grey.shade200),
         child: Column(
           children: [
             Expanded(
