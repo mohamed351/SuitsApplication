@@ -3,7 +3,6 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/models/product_list.dart';
 import 'package:shopping/widgets/product_item_widget.dart';
-
 import '../providers/products_provider.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/cart_icon_widget.dart';

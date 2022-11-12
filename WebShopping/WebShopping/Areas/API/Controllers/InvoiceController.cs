@@ -49,8 +49,8 @@ namespace WebShopping.Areas.API.Controllers
         public async Task<IActionResult> CreateInvoice([FromBody]InvoiceCreateDTO createDTO)
         {
             int lastInvoiceNumber = context.Invoices.Select(a=> a.InvoiceNumber).ToList().DefaultIfEmpty(0).Max();
-         
-        
+
+            string userId = User.GetUserId();
             Invoice invoice = new Invoice();
             invoice.CurrencyCode = createDTO.CurrencyCode;
             invoice.IsApproved = false;
@@ -71,6 +71,9 @@ namespace WebShopping.Areas.API.Controllers
                     
                 }); 
             }
+            var listOfCart = context.Carts.Where(a => a.UserID == userId);
+            context.RemoveRange(listOfCart);
+
             context.Invoices.Add(invoice);
            await context.SaveChangesAsync();
             

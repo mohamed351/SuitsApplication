@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import '../constaint/constaint.dart';
@@ -65,5 +66,10 @@ class CartProvider with ChangeNotifier {
       _cart.removeWhere((element) => element.productId == productId);
       notifyListeners();
     }
+  }
+
+  Future<void> ClearCart() async {
+    this.Items.clear();
+    this.notifyListeners();
   }
 }

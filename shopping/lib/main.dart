@@ -5,10 +5,12 @@ import 'package:shopping/providers/cart_provider.dart';
 import 'package:shopping/providers/products_provider.dart';
 import 'package:shopping/screens/auth_screen.dart';
 import 'package:shopping/screens/cart_screen.dart';
+import 'package:shopping/screens/invoice_screen.dart';
 import 'package:shopping/screens/product_details_screen.dart';
 import 'package:shopping/screens/product_list_screen.dart';
 import 'package:shopping/screens/signUp_screen.dart';
 import 'package:shopping/screens/splash_screen.dart';
+import "package:shopping/providers/invoice_provider.dart";
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +33,11 @@ class MyApp extends StatelessWidget {
           update: (context, value, previous) =>
               CartProvider(value.token.toString()),
           create: (_) => CartProvider(""),
+        ),
+        ChangeNotifierProxyProvider<Auth, InvoiceProvider>(
+          create: (context) => InvoiceProvider(""),
+          update: (context, value, previous) =>
+              InvoiceProvider(value.token.toString()),
         )
       ],
       child: Consumer<Auth>(
@@ -53,7 +60,8 @@ class MyApp extends StatelessWidget {
             SplashScreen.routerName: (context) => SplashScreen(),
             ProductDetail.routerName: (context) => ProductDetail(),
             SignupScreen.routerName: (context) => SignupScreen(),
-            CartScreen.routerName: (context) => CartScreen()
+            CartScreen.routerName: (context) => CartScreen(),
+            InvoiceScreen.routerName: (context) => InvoiceScreen()
           },
         ),
       ),

@@ -4,7 +4,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/models/Cart.dart';
 import 'package:shopping/models/cart.dart';
+import 'package:shopping/models/invoice_submit.dart';
 import 'package:shopping/providers/cart_provider.dart';
+import "package:shopping/providers/invoice_provider.dart";
 
 class CartScreen extends StatefulWidget {
   static const routerName = "/cartScreen";
@@ -15,6 +17,55 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  bool _isLoading = false;
+  Future<void> SubmitInvoice(BuildContext ctx) async {
+    setState(() {
+      _isLoading = true;
+    });
+    try {
+      var cartItem = Provider.of<CartProvider>(context, listen: false).Items;
+      if (cartItem.length == 0) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: const Text("Please Add Items"),
+          duration: Duration(milliseconds: 1500),
+        ));
+        return;
+      }
+      List<InvoiceDetailsSubmit> listOfDetails = [];
+      for (var element in cartItem) {
+        listOfDetails.add(InvoiceDetailsSubmit(
+            id: 0,
+            price: element.purchasingPriceForSales,
+            productId: element.productId,
+            quantity: element.quantity,
+            total: 0));
+      }
+      var result = await Provider.of<InvoiceProvider>(context, listen: false)
+          .SubmitInvoice(
+              InvoiceSubmit(currencyCode: "EGP", invoiceData: listOfDetails));
+      if (result) {
+        ScaffoldMessenger.of(ctx).showSnackBar(const SnackBar(
+          content: const Text("Successfull Please See Invoices"),
+          duration: Duration(milliseconds: 1500),
+        ));
+        Provider.of<CartProvider>(ctx, listen: false).ClearCart();
+      } else {
+        ScaffoldMessenger.of(ctx).showSnackBar(const SnackBar(
+          content: const Text("Error Invoice Submittion"),
+          duration: Duration(milliseconds: 1500),
+        ));
+      }
+
+      setState(() {
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,15 +73,29 @@ class _CartScreenState extends State<CartScreen> {
         backgroundColor: Colors.purple,
         title: Text("Cart "),
       ),
-      bottomSheet: Card(
+      bottomSheet: Container(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Consumer<CartProvider>(
-              builder: (context, value, child) =>
-                  Text(value.totalInvoice.toString()),
+              builder: (context, value, child) => Expanded(
+                child: Text(
+                  value.totalInvoice.toStringAsFixed(2) + " LE",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.purple, fontSize: 25),
+                ),
+              ),
             ),
-            ElevatedButton(onPressed: () {}, child: Text("Submit Invoice"))
+            Expanded(
+                child: ElevatedButton(
+                    onPressed: () async {
+                      await SubmitInvoice(context);
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      "Submit Invoice ",
+                      textAlign: TextAlign.center,
+                    )))
           ],
         ),
       ),
@@ -42,8 +107,7 @@ class _CartScreenState extends State<CartScreen> {
               child: CircularProgressIndicator(),
             );
           } else {
-            print("Hello");
-            var items = Provider.of<CartProvider>(context, listen: true).Items;
+            var items = Provider.of<CartProvider>(context, listen: false).Items;
 
             return ListView.builder(
                 itemBuilder: (context, index) {
