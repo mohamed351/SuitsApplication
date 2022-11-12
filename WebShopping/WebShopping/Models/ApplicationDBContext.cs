@@ -24,6 +24,12 @@ namespace WebShopping.Models
 
         public DbSet<Cart> Carts { get; set; }
 
+
+        public DbSet<Invoice> Invoices { get; set; }
+
+
+        public DbSet<InvoiceDetails> InvoiceDetails { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Cart>()
