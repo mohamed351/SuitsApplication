@@ -5,6 +5,7 @@ import 'package:shopping/providers/cart_provider.dart';
 import 'package:shopping/providers/products_provider.dart';
 import 'package:shopping/screens/auth_screen.dart';
 import 'package:shopping/screens/cart_screen.dart';
+import 'package:shopping/screens/invoice_details_screen.dart';
 import 'package:shopping/screens/invoice_screen.dart';
 import 'package:shopping/screens/product_details_screen.dart';
 import 'package:shopping/screens/product_list_screen.dart';
@@ -61,7 +62,8 @@ class MyApp extends StatelessWidget {
             ProductDetail.routerName: (context) => ProductDetail(),
             SignupScreen.routerName: (context) => SignupScreen(),
             CartScreen.routerName: (context) => CartScreen(),
-            InvoiceScreen.routerName: (context) => InvoiceScreen()
+            InvoiceScreen.routerName: (context) => InvoiceScreen(),
+            InvoiceDetailsScreen.routerName: (context) => InvoiceDetailsScreen()
           },
         ),
       ),

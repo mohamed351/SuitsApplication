@@ -83,7 +83,7 @@ namespace WebShopping.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "ID", subCategory.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "EnglishName", subCategory.CategoryID);
             return View(subCategory);
         }
 
@@ -119,7 +119,7 @@ namespace WebShopping.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "ID", subCategory.CategoryID);
+            ViewData["CategoryID"] = new SelectList(_context.Categories, "ID", "EnglishName", subCategory.CategoryID);
             return View(subCategory);
         }
 

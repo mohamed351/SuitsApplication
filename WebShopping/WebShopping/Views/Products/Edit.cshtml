@@ -4,7 +4,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+@section styles{
+    <link href="~/lib/custome-cropper/cropper.min.css" rel="stylesheet" />
+}
 
 <h4>Product</h4>
 <hr />
@@ -43,11 +45,11 @@
                 <input asp-for="Quantity" class="form-control" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
-            <div class="form-group">
+           @* <div class="form-group">
                 <label asp-for="ImageUrl" class="control-label"></label>
                 <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="DescriptionArabic" class="control-label"></label>
                 <input asp-for="DescriptionArabic" class="form-control" />
@@ -58,19 +60,45 @@
                 <input asp-for="DescriptionEnglish" class="form-control" />
                 <span asp-validation-for="DescriptionEnglish" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsDeleted" /> @Html.DisplayNameFor(model => model.IsDeleted)
-                </label>
-            </div>
+         
             <div class="form-group">
                 <label asp-for="SubCategoryID" class="control-label"></label>
                 <select asp-for="SubCategoryID" class="form-control" asp-items="ViewBag.SubCategoryID"></select>
                 <span asp-validation-for="SubCategoryID" class="text-danger"></span>
             </div>
+
+
+                <div class="form-group">
+                    <label asp-for="BrandID">Brand</label>
+                    <select asp-for="BrandID" class="form-control" asp-items="ViewBag.BrandID"></select>
+                </div>
+
+
+            <div class="form-group">
+
+                <div style="display:flex">
+                    <div style="width:400px; height:400px;">
+                        <img src="~/images/@Model.ImageUrl" style="width: 400px; width: 400px; ">
+                    </div>
+                <div style="width:400px; height:400px;">
+                    <img id="image-src" style="width: 400px; width: 400px; ">
+                </div>
+
+               
+                </div>
+
+                <input type="file" id="file" />
+                <input type="hidden" />
+                <input type="hidden" asp-for="ImageUrl" />
+                @*<div style="width:400px; height:400px;" style="display: flex; justify-content: center;">
+                <div class="span4 cropme" style="width:400px; height:400px;"></div>
+                </div>*@
+
+            </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+
         </form>
     </div>
 </div>
@@ -79,6 +107,66 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-default-title">Crop Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="img-container">
+                            <img src="" class="img-fluid" id="image-modal-cropper">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="crop">Crop</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/lib/custome-cropper/cropper.min.js"></script>
+    <script src="~/lib/custome-cropper/jquery-cropper.min.js"></script>
+    <script src="~/lib/custome-cropper/custome-cropper.js"></script>
+    <script src="~/lib/sweetalert/sweetalert.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            customimageCropper({
+                fileSelector: "#file",
+                modelImageSelector: "#image-modal-cropper",
+                sourceImageSelector: "#image-src",
+                submitSelector: "#crop",
+                aspectRatio: 1 / 1,
+                minContainerWidth: 400,
+                minContainerHeight: 400,
+                maxCropBoxWidth: 400,
+                maxCropBoxHeight: 400
+            });
+        });
+
+
+        $("form").on("submit", () => {
+            $("#ImageUrl").val($("#image-src").attr("src"));
+            //if ($("#ImageUrl").val() === null || $("#ImageUrl").val() === undefined || $("#ImageUrl").val().trim() === "") {
+            //    swal("Please Add Photo", "", "error");
+            //    return false;
+            //}
+
+        });
+    </script>
 }

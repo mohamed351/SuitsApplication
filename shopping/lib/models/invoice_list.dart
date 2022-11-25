@@ -11,21 +11,26 @@ String InvoiceListToJson(List<InvoiceList> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class InvoiceList {
-  InvoiceList({
-    this.id,
-    this.invoiceNumber,
-    this.isApproved,
-    this.isDeleted,
-    this.totalInvoice,
-    this.details,
-  });
+  InvoiceList(
+      {this.id,
+      this.invoiceNumber,
+      this.isApproved,
+      this.isDeleted,
+      this.totalInvoice,
+      this.details,
+      this.invoiceDate,
+      this.user,
+      this.address});
 
   int? id;
   int? invoiceNumber;
   bool? isApproved;
   bool? isDeleted;
-  int? totalInvoice;
+  double? totalInvoice;
+  DateTime? invoiceDate;
   List<Detail>? details;
+  String? user;
+  String? address;
 
   factory InvoiceList.fromJson(Map<String, dynamic> json) => InvoiceList(
         id: json["id"],
@@ -33,6 +38,9 @@ class InvoiceList {
         isApproved: json["isApproved"],
         isDeleted: json["isDeleted"],
         totalInvoice: json["totalInvoice"],
+        invoiceDate: DateTime.parse(json["invoiceDate"]),
+        user: json["user"],
+        address: json["address"],
         details:
             List<Detail>.from(json["details"].map((x) => Detail.fromJson(x))),
       );
@@ -43,6 +51,9 @@ class InvoiceList {
         "isApproved": isApproved,
         "isDeleted": isDeleted,
         "totalInvoice": totalInvoice,
+        "invoiceDate": invoiceDate,
+        "user": user,
+        "address": address,
         "details": List<dynamic>.from(details!.map((x) => x.toJson())),
       };
 }
@@ -59,7 +70,7 @@ class Detail {
   String? englishName;
   String? arabicName;
   double? price;
-  int? quantity;
+  double? quantity;
   double? total;
 
   factory Detail.fromJson(Map<String, dynamic> json) => Detail(

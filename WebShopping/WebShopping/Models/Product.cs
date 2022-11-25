@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WebShopping.Models
 {
@@ -33,6 +34,18 @@ namespace WebShopping.Models
         public int SubCategoryID { get; set; }
 
         public SubCategory? SubCategory { get; set; }
+
+        [AllowNull]
+        public int? BrandID { get; set; }
+
+
+        public Brand? Brand { get; set; }
+
+
+
+
+
+
 
 
 

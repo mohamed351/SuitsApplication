@@ -25,13 +25,20 @@ namespace WebShopping.Areas.API.Controllers
         public IActionResult GetInvoices()
         {
             string userId = User.GetUserId();
-          var query=  context.Invoices.Include(a=> a.InvoiceDetails).ThenInclude(a=> a.Product).Where(a => a.UserId == userId).Select(a =>
+           var currentUser =  context.Users.FirstOrDefault(a => a.Id == userId);
+          var query=  context.Invoices
+                .Include(a=> a.InvoiceDetails)
+                .ThenInclude(a=> a.Product)
+                .Where(a => a.UserId == userId).Select(a =>
             new {
                 Id = a.ID,
                 a.InvoiceNumber,
                 a.IsApproved,
                 a.IsDeleted,
                 a.TotalInvoice,
+                a.InvoiceDate,
+               User = currentUser!.PharmacyName,
+               currentUser.Address,
                 Details = a.InvoiceDetails.Select(a =>
                new  {
                     a.Product.EnglishName,
@@ -58,6 +65,7 @@ namespace WebShopping.Areas.API.Controllers
             invoice.UserId = User.GetUserId();
             invoice.TotalInvoice = createDTO.InvoiceData.Sum(a => a.Quantity * a.Price);
             invoice.InvoiceNumber = ++lastInvoiceNumber;
+            invoice.InvoiceDate = DateTime.Now;
             foreach (var item in createDTO.InvoiceData)
             {
                 invoice.InvoiceDetails.Add(new InvoiceDetails()

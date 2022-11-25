@@ -14,7 +14,7 @@
 
         public int InvoiceNumber { get; set; }
 
-
+        public DateTime InvoiceDate { get; set; }
         public string CurrencyCode { get; set; }
 
         public decimal TotalInvoice { get; set; }

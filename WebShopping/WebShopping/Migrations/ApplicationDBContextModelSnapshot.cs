@@ -17,7 +17,7 @@ namespace WebShopping.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("ProductVersion", "6.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -235,6 +235,33 @@ namespace WebShopping.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("WebShopping.Models.Brand", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("BrandArabic")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BrandEnglish")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Brands");
+                });
+
             modelBuilder.Entity("WebShopping.Models.Cart", b =>
                 {
                     b.Property<int>("ProductID")
@@ -285,6 +312,9 @@ namespace WebShopping.Migrations
                     b.Property<string>("CurrencyCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InvoiceDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("InvoiceNumber")
                         .HasColumnType("int");
@@ -353,6 +383,9 @@ namespace WebShopping.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("BrandID")
+                        .HasColumnType("int");
+
                     b.Property<string>("DescriptionArabic")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -387,6 +420,8 @@ namespace WebShopping.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("BrandID");
 
                     b.HasIndex("SubCategoryID");
 
@@ -521,11 +556,17 @@ namespace WebShopping.Migrations
 
             modelBuilder.Entity("WebShopping.Models.Product", b =>
                 {
+                    b.HasOne("WebShopping.Models.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandID");
+
                     b.HasOne("WebShopping.Models.SubCategory", "SubCategory")
                         .WithMany("Products")
                         .HasForeignKey("SubCategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Brand");
 
                     b.Navigation("SubCategory");
                 });
@@ -539,6 +580,11 @@ namespace WebShopping.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("WebShopping.Models.Brand", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("WebShopping.Models.Category", b =>

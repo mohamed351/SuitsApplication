@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping/screens/invoice_screen.dart';
 
 import '../providers/auth_provider.dart';
 
@@ -21,6 +22,13 @@ class AppDrawer extends StatelessWidget {
           leading: Icon(Icons.logout),
           onTap: () async {
             await Provider.of<Auth>(context, listen: false).logout();
+          },
+        ),
+        ListTile(
+          title: const Text("Invoices"),
+          leading: Icon(Icons.inventory),
+          onTap: () async {
+            Navigator.of(context).pushNamed(InvoiceScreen.routerName);
           },
         )
       ]),

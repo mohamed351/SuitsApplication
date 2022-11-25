@@ -30,6 +30,8 @@ namespace WebShopping.Models
 
         public DbSet<InvoiceDetails> InvoiceDetails { get; set; }
 
+        public DbSet<Brand> Brands { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Cart>()

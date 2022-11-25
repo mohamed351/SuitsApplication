@@ -37,7 +37,7 @@ namespace WebShopping.Controllers
         {
             var search = Request.Query["search[value]"].ToString();
             
-            var query = await this.unit.Products.GetDataTable(start, length, a => a.ArabicName.Contains(search) || a.EnglishName.Contains(search), a => a.ID);
+            var query = await this.unit.Products.GetDataTable(start, length, (a => a.ArabicName.Contains(search) || a.EnglishName.Contains(search) && a.IsDeleted == false), a => a.ID);
             return Ok(query);
         }
 
@@ -63,7 +63,11 @@ namespace WebShopping.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            
+          
+          
             ViewData["SubCategoryID"] = new SelectList(_context.SubCategories, "ID", "EnglishName");
+            ViewBag.BrandID = new SelectList(_context.Brands, "ID", "BrandEnglish");
             return View();
         }
 
@@ -97,7 +101,10 @@ namespace WebShopping.Controllers
             {
                 return NotFound();
             }
-            ViewData["SubCategoryID"] = new SelectList(_context.SubCategories, "ID", "ID", product.SubCategoryID);
+
+
+            ViewData["BrandID"] = new SelectList(_context.Brands, "ID", "BrandEnglish", product.BrandID);
+            ViewData["SubCategoryID"] = new SelectList(_context.SubCategories, "ID", "EnglishName", product.SubCategoryID);
             return View(product);
         }
 
@@ -106,7 +113,7 @@ namespace WebShopping.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,EnglishName,ArabicName,SellingPrice,PurchasingPriceForPublic,PurchasingPriceForSales,Quantity,ImageUrl,DescriptionArabic,DescriptionEnglish,IsDeleted,SubCategoryID")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,EnglishName,ArabicName,SellingPrice,PurchasingPriceForPublic,PurchasingPriceForSales,Quantity,ImageUrl,DescriptionArabic,DescriptionEnglish,IsDeleted,SubCategoryID,BrandID")] Product product)
         {
             if (id != product.ID)
             {
@@ -117,6 +124,18 @@ namespace WebShopping.Controllers
             {
                 try
                 {
+                    if(product.ImageUrl != null)
+                    {
+                        product.ImageUrl = ImageHelpers.ConvertMainImage(product.ImageUrl, hostEnvironment);
+                    }
+                    else
+                    {
+                        var currentProduct = _context.Products.AsNoTracking().FirstOrDefault(a => a.ID == id);
+               
+                            product.ImageUrl = currentProduct.ImageUrl;
+                        
+                           
+                    }
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -133,6 +152,7 @@ namespace WebShopping.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.BrandID = new SelectList(_context.Brands.ToList(), "ID", "BrandEnglish");
             ViewData["SubCategoryID"] = new SelectList(_context.SubCategories, "ID", "ID", product.SubCategoryID);
             return View(product);
         }

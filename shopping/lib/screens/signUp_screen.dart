@@ -77,7 +77,7 @@ class SignupScreen extends StatelessWidget {
                         ),
                         TextFieldWidget(
                             onSave: (value) {
-                              _signUp.address = value;
+                              _signUp.doctorName = value;
                             },
                             validator: (String value) {
                               if (value.isEmpty) {
@@ -93,7 +93,7 @@ class SignupScreen extends StatelessWidget {
                         ),
                         TextFieldWidget(
                             onSave: (value) {
-                              _signUp.doctorName = value;
+                              _signUp.address = value;
                             },
                             validator: (String value) {
                               if (value.isEmpty) {
@@ -103,7 +103,7 @@ class SignupScreen extends StatelessWidget {
                             },
                             icon: Icon(Icons.balance),
                             obscureText: false,
-                            currentLabel: "DoctorName Address :"),
+                            currentLabel: " Address :"),
                         SizedBox(
                           height: 20,
                         ),
