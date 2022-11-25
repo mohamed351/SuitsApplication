@@ -1,4 +1,5 @@
-﻿using WebShopping.Repository.interfaces;
+﻿using WebShopping.Repository.implementation;
+using WebShopping.Repository.interfaces;
 
 namespace WebShopping.UnitOfWork
 {
@@ -8,6 +9,8 @@ namespace WebShopping.UnitOfWork
         public IProductRepository   Products { get;  }
 
         public IUserRepository Users { get;  }
+
+        public IInvoiceRepository Invoice { get; }
 
         int Complete();
        

@@ -13,9 +13,12 @@ namespace WebShopping.UnitOfWork
             this.context = context;
             this.Products = new ProductRepository(context);
             this.Users = new UserRepository(context);
+            this.Invoice = new InvoiceRepository(context);
         }
         public IProductRepository Products { get; }
         public IUserRepository Users { get; }
+
+        public IInvoiceRepository Invoice { get; }
 
         public int Complete()
         {

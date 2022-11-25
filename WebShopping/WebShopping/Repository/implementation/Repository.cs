@@ -30,12 +30,12 @@ namespace WebShopping.Repository.implementation
             return await context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity> GetByID(TKey key)
+        public virtual async   Task<TEntity?> GetByID(TKey key)
         {
             return await context.Set<TEntity>().FindAsync(key);
         }
 
-        public async Task<DataTableViewModel<TEntity>> GetDataTable(int start, int lenght, Expression<Func<TEntity, bool>> search, Expression<Func<TEntity, TKey>> OrderBy)
+        public virtual async  Task<DataTableViewModel<TEntity>> GetDataTable(int start, int lenght, Expression<Func<TEntity, bool>> search, Expression<Func<TEntity, TKey>> OrderBy)
         {
             var query = context.Set<TEntity>().Where(search);
 
@@ -51,7 +51,7 @@ namespace WebShopping.Repository.implementation
         }
 
 
-        public async Task<DataTableViewModel<TResult>> GetDataTable<TResult>(int start, int lenght, Expression<Func<TEntity, bool>> search, Expression<Func<TEntity, TKey>> OrderBy , Expression<Func<TEntity, TResult>> select) where TResult : class
+        public async virtual  Task<DataTableViewModel<TResult>> GetDataTable<TResult>(int start, int lenght, Expression<Func<TEntity, bool>> search, Expression<Func<TEntity, TKey>> OrderBy , Expression<Func<TEntity, TResult>> select) where TResult : class
         {
             var query = context.Set<TEntity>().OrderBy(OrderBy).Skip(start).Take(lenght).Where(search);
 

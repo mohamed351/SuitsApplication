@@ -40,6 +40,7 @@ D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Caching.Memory.dll
+D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Core.dll
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\PubTmp\Out\Microsoft.Extensions.Identity.Stores.dll
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\PubTmp\Out\Microsoft.Identity.Client.dll

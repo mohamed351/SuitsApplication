@@ -37,7 +37,8 @@ namespace WebShopping.Controllers
         {
             var search = Request.Query["search[value]"].ToString();
             
-            var query = await this.unit.Products.GetDataTable(start, length, (a => a.ArabicName.Contains(search) || a.EnglishName.Contains(search) && a.IsDeleted == false), a => a.ID);
+            var query = await this.unit.Products.GetDataTable(start, length, 
+                (a => a.ArabicName.Contains(search) || a.EnglishName.Contains(search) && a.IsDeleted == false), a => a.ID);
             return Ok(query);
         }
 

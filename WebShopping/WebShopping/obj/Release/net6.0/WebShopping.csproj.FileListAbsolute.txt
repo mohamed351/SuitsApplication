@@ -552,3 +552,4 @@ D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\WebShopping.pdb
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\WebShopping.genruntimeconfig.cache
 D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\obj\Release\net6.0\ref\WebShopping.dll
+D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\bin\Release\net6.0\Microsoft.Extensions.DependencyInjection.dll
