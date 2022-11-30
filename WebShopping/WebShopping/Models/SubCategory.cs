@@ -20,6 +20,8 @@ namespace WebShopping.Models
 
         public ICollection<Product> Products { get; set; }
 
+        public string ImageUrl { get; set; }
+
 
 
     }

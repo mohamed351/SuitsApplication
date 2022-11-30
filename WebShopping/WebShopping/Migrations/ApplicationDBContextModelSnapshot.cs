@@ -296,6 +296,10 @@ namespace WebShopping.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Categories");
@@ -444,6 +448,10 @@ namespace WebShopping.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EnglishName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

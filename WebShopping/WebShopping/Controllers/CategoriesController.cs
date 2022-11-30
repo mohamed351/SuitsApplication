@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using WebShopping.Helpers;
 using WebShopping.Models;
 
 namespace WebShopping.Controllers
@@ -14,10 +15,12 @@ namespace WebShopping.Controllers
     public class CategoriesController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
-        public CategoriesController(ApplicationDBContext context)
+        public CategoriesController(ApplicationDBContext context , IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            this.webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Categories
@@ -55,10 +58,11 @@ namespace WebShopping.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,ArabicName,EnglishName")] Category category)
+        public async Task<IActionResult> Create([Bind("ID,ArabicName,EnglishName,ImageUrl")] Category category)
         {
             if (ModelState.IsValid)
             {
+                category.ImageUrl = ImageHelpers.ConvertMainImage(category.ImageUrl, webHostEnvironment);
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -87,7 +91,7 @@ namespace WebShopping.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,ArabicName,EnglishName")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,ArabicName,EnglishName,ImageUrl")] Category category)
         {
             if (id != category.ID)
             {
@@ -98,6 +102,14 @@ namespace WebShopping.Controllers
             {
                 try
                 {
+                    if(category.ImageUrl != null)
+                    {
+                        category.ImageUrl = ImageHelpers.ConvertMainImage(category.ImageUrl, webHostEnvironment);
+                    }
+                    else
+                    {
+                        category.ImageUrl = _context.Categories.FirstOrDefault(a => a.ID == id)!.ImageUrl;
+                    }
                     _context.Update(category);
                     await _context.SaveChangesAsync();
                 }
