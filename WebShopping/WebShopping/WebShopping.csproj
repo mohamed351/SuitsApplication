@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\API\Models\" />
-    <Folder Include="Areas\API\Views\" />
     <Folder Include="Specification\implementation\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
