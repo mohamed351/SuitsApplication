@@ -108,7 +108,7 @@ namespace WebShopping.Controllers
                     }
                     else
                     {
-                        category.ImageUrl = _context.Categories.FirstOrDefault(a => a.ID == id)!.ImageUrl;
+                        category.ImageUrl = _context.Categories.AsNoTracking().FirstOrDefault(a => a.ID == id)!.ImageUrl;
                     }
                     _context.Update(category);
                     await _context.SaveChangesAsync();

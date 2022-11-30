@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using WebShopping.Helpers;
 using WebShopping.Models;
 
 namespace WebShopping.Controllers
@@ -14,10 +15,12 @@ namespace WebShopping.Controllers
     public class SubCategoriesController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly IWebHostEnvironment environment;
 
-        public SubCategoriesController(ApplicationDBContext context)
+        public SubCategoriesController(ApplicationDBContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            this.environment = environment;
         }
 
         // GET: SubCategories
@@ -58,10 +61,11 @@ namespace WebShopping.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,ArabicName,EnglishName,CategoryID")] SubCategory subCategory)
+        public async Task<IActionResult> Create([Bind("ID,ArabicName,EnglishName,CategoryID,ImageUrl")] SubCategory subCategory)
         {
             if (ModelState.IsValid)
             {
+                subCategory.ImageUrl = ImageHelpers.ConvertMainImage(subCategory.ImageUrl, environment);
                 _context.Add(subCategory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -92,7 +96,7 @@ namespace WebShopping.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,ArabicName,EnglishName,CategoryID")] SubCategory subCategory)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,ArabicName,EnglishName,CategoryID,ImageUrl")] SubCategory subCategory)
         {
             if (id != subCategory.ID)
             {
@@ -103,6 +107,14 @@ namespace WebShopping.Controllers
             {
                 try
                 {
+                    if(subCategory.ImageUrl != null)
+                    {
+                        subCategory.ImageUrl = ImageHelpers.ConvertMainImage(subCategory.ImageUrl, environment);
+                    }
+                    else
+                    {
+                        subCategory.ImageUrl = _context.SubCategories.AsNoTracking().FirstOrDefault(a => a.ID == id)!.ImageUrl;
+                    }
                     _context.Update(subCategory);
                     await _context.SaveChangesAsync();
                 }
