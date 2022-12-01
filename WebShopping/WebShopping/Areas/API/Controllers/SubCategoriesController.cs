@@ -14,17 +14,34 @@ namespace WebShopping.Areas.API.Controllers
     public class SubCategoriesController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public SubCategoriesController(ApplicationDBContext context)
+        public SubCategoriesController(ApplicationDBContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         // GET: api/SubCategories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SubCategory>>> GetSubCategories()
+        public async Task<ActionResult> GetSubCategories()
         {
-            return await _context.SubCategories.ToListAsync();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            return Ok(await _context.SubCategories.Select(a=> new { a.ArabicName, a.EnglishName ,
+                ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl }).ToListAsync());
+        }
+
+        [HttpGet("top")]
+        public async Task<ActionResult> GetSubCategoriesTop()
+        {
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            return Ok(await _context.SubCategories.OrderByDescending(a=> a.ID).Skip(0).Take(10).Select(a => new {
+                a.ArabicName,
+                a.EnglishName,
+                ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl
+            }).ToListAsync());
         }
 
         // GET: api/SubCategories/5

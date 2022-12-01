@@ -36,7 +36,7 @@ namespace WebShopping.Areas.API.Controllers
         public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProducts(int start = 0, int length =10, string? search="")
         {
            var testing= User.GetUserId();
-            string host = httpContextAccessor.HttpContext.Request.Host.Value;
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
             string schema = httpContextAccessor.HttpContext.Request.Scheme;
             if (search == null)
             {

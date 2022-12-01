@@ -14,17 +14,28 @@ namespace WebShopping.Areas.API.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public CategoriesController(ApplicationDBContext context)
+        public CategoriesController(ApplicationDBContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult> GetCategories()
         {
-            return await _context.Categories.ToListAsync();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            return Ok(await _context.Categories.Select(a=> new { a.ArabicName , a.EnglishName , ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl }).ToListAsync());
+        }
+        [HttpGet("top")]
+        public async Task<ActionResult> GetCategoriesTop()
+        {
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            return Ok(await _context.Categories.Skip(0).Take(10).Select(a => new { a.ArabicName, a.EnglishName, ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl }).ToListAsync());
         }
 
         // GET: api/Categories/5

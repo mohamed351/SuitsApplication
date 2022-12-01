@@ -14,18 +14,39 @@ namespace WebShopping.Areas.API.Controllers
     public class BrandsController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public BrandsController(ApplicationDBContext context)
+        public BrandsController(ApplicationDBContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         // GET: api/Brands
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Brand>>> GetBrands()
+        public async Task<ActionResult> GetBrands()
         {
-            return await _context.Brands.ToListAsync();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            return Ok(await _context.Brands.Select(a=> new { 
+                a.BrandArabic,
+                a.BrandEnglish,
+               ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl
+            }).ToListAsync());
         }
+
+        [HttpGet("top")]
+        public async Task<ActionResult> GetBrandsTop10()
+        {
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            return Ok(await _context.Brands.OrderByDescending(a=> a.ID).Skip(0).Take(10).Select(a => new {
+                a.BrandArabic,
+                a.BrandEnglish,
+                ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl
+            }).ToListAsync());
+        }
+
 
         // GET: api/Brands/5
         [HttpGet("{id}")]
