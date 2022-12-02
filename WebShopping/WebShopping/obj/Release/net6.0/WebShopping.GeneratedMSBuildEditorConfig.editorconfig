@@ -15,6 +15,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\RealProjects\MobileShop\Application\WebShopping\WebShopping
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -65,6 +85,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Invoices/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Invoices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Products/Create.cshtml]

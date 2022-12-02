@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KSe3I1pcb8xSXfadDFh/1ONhXUEq6qx2yvuVVwYYbVc=",
+  "Hash": "QRT/weV3FKcQaTbTEuS+FqwfcZc7UHMIKf21sB/nb08=",
   "Source": "WebShopping",
   "BasePath": "_content/WebShopping",
   "Mode": "Default",
@@ -102,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\images\\048dc84a-1d94-4811-9646-b87a1ab26b03.png"
     },
     {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\1083230c-96fb-4bf1-88ee-113f0dcae4be.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/1083230c-96fb-4bf1-88ee-113f0dcae4be.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\1083230c-96fb-4bf1-88ee-113f0dcae4be.png"
+    },
+    {
       "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\1cb0c887-b402-41a8-b87f-8ae83b270f6c.png",
       "SourceId": "WebShopping",
       "SourceType": "Discovered",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\1cb0c887-b402-41a8-b87f-8ae83b270f6c.png"
+    },
+    {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\262a3dcc-3422-4024-bc66-5cd5e8c9c7e0.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/262a3dcc-3422-4024-bc66-5cd5e8c9c7e0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\262a3dcc-3422-4024-bc66-5cd5e8c9c7e0.png"
     },
     {
       "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\343ed6f8-633c-4239-b143-78695b854041.png",
@@ -136,6 +170,23 @@
       "OriginalItemSpec": "wwwroot\\images\\343ed6f8-633c-4239-b143-78695b854041.png"
     },
     {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\3778b52a-74c4-42c1-9d21-6370b26c1830.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/3778b52a-74c4-42c1-9d21-6370b26c1830.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\3778b52a-74c4-42c1-9d21-6370b26c1830.png"
+    },
+    {
       "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\3883fe0e-db7c-4c9b-9b63-a5813041affa.png",
       "SourceId": "WebShopping",
       "SourceType": "Discovered",
@@ -151,6 +202,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\3883fe0e-db7c-4c9b-9b63-a5813041affa.png"
+    },
+    {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\4784e25c-6d49-4c30-af76-bc628a9bfae2.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/4784e25c-6d49-4c30-af76-bc628a9bfae2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\4784e25c-6d49-4c30-af76-bc628a9bfae2.png"
     },
     {
       "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\47cf062d-61a6-48ff-9f06-325e2c0d656e.png",
@@ -202,6 +270,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\63b68f6a-4a3f-4ce8-9cb6-ee60101e9314.png"
+    },
+    {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\7df0d8d5-331a-4011-bd38-cb7b5568e61d.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/7df0d8d5-331a-4011-bd38-cb7b5568e61d.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\7df0d8d5-331a-4011-bd38-cb7b5568e61d.png"
+    },
+    {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\8b15cdc5-8ddd-4345-a03a-d6c72ba64b5e.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/8b15cdc5-8ddd-4345-a03a-d6c72ba64b5e.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\8b15cdc5-8ddd-4345-a03a-d6c72ba64b5e.png"
     },
     {
       "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\9a6395fe-ee24-4e65-8ed1-ae13514d5caa.png",
