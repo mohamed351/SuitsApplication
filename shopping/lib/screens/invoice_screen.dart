@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+// import 'home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/providers/invoice_provider.dart';
 import 'package:shopping/screens/invoice_details_screen.dart';
@@ -11,7 +11,7 @@ class InvoiceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Invoices")),
+      // appBar: AppBar(title: Text("Invoices")),
       body: Container(
           child: FutureBuilder(
         future:

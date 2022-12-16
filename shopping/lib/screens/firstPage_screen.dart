@@ -4,7 +4,13 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/providers/home_provider.dart';
+import 'package:shopping/screens/product_List_Screen_try.dart';
+import 'package:shopping/screens/product_list_screen.dart';
+import 'package:shopping/widgets/product_item_widget.dart';
 import 'package:shopping/widgets/sub_category_list.dart';
+import 'package:shopping/models/product_list.dart';
+import 'package:shopping/screens/product_details_screen.dart';
+import 'package:shopping/screens/product_List_Screen_try.dart';
 
 import '../widgets/brands_list_widget.dart';
 import '../widgets/category_list_widget.dart';
@@ -29,6 +35,7 @@ class FirstPageHome extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
+
                 const Padding(
                     padding: EdgeInsets.only(left: 15, top: 20),
                     child: Text(
@@ -36,6 +43,7 @@ class FirstPageHome extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                     )),
                 BrandListWidget(),
+
                 const Padding(
                     padding: EdgeInsets.only(left: 15, top: 20),
                     child: Text(
@@ -49,7 +57,10 @@ class FirstPageHome extends StatelessWidget {
                       "SubCateogry",
                       style: TextStyle(fontSize: 20),
                     )),
-                SubCateogryListWidget()
+                SubCateogryListWidget(),
+
+
+
               ]),
         );
       }),

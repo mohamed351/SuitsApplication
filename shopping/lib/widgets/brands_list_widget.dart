@@ -10,6 +10,8 @@ import 'package:shopping/providers/home_provider.dart';
 class BrandListWidget extends StatelessWidget {
   const BrandListWidget({super.key});
 
+
+
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<HomeProvider>(context, listen: false);
@@ -21,7 +23,8 @@ class BrandListWidget extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.all(10),
-            child: Image.network(
+            child:
+            Image.network(
               provider.Brands[index].imageUrl.toString(),
               width: 100,
             ),
@@ -30,5 +33,6 @@ class BrandListWidget extends StatelessWidget {
         itemCount: provider.Brands.length,
       ),
     );
+
   }
 }

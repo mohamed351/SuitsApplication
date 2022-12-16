@@ -24,13 +24,13 @@ class AppDrawer extends StatelessWidget {
             await Provider.of<Auth>(context, listen: false).logout();
           },
         ),
-        ListTile(
-          title: const Text("Invoices"),
-          leading: Icon(Icons.inventory),
-          onTap: () async {
-            Navigator.of(context).pushNamed(InvoiceScreen.routerName);
-          },
-        )
+        // ListTile(
+        //   title: const Text("Invoices"),
+        //   leading: Icon(Icons.inventory),
+        //   onTap: () async {
+        //     Navigator.of(context).pushNamed(InvoiceScreen.routerName);
+        //   },
+        // )
       ]),
     );
   }
