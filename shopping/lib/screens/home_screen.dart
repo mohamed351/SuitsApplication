@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Color(0xFF4C53A5),
         title: Text(screens[_page]["title"]),
-        // actions: [CartIconWidge()],
+        actions: [CartIconWidge()],
       ),
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.transparent,

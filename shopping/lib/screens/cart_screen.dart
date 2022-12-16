@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping/constaint/constaint.dart';
 import 'package:shopping/models/Cart.dart';
 import 'package:shopping/models/cart.dart';
 import 'package:shopping/models/invoice_submit.dart';
@@ -69,10 +70,10 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.purple,
-      //   title: Text("Cart "),
-      // ),
+      appBar: AppBar(
+        backgroundColor: Constaint.primaryColor,
+        title: Text("Cart "),
+      ),
       bottomSheet: Container(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +83,7 @@ class _CartScreenState extends State<CartScreen> {
                 child: Text(
                   value.totalInvoice.toStringAsFixed(2) + " LE",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.purple, fontSize: 25),
+                  style: TextStyle(color: Constaint.primaryColor, fontSize: 25),
                 ),
               ),
             ),

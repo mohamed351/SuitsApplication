@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping/constaint/constaint.dart';
 import 'package:shopping/screens/signUp_screen.dart';
 import 'package:shopping/widgets/button_widget.dart';
 import '../providers/auth_provider.dart';
@@ -83,7 +84,10 @@ class _AuthScreenState extends State<AuthScreen> {
                         TextFieldWidget(
                             currentLabel: "Phone",
                             obscureText: false,
-                            icon: const Icon(Icons.phone),
+                            icon: const Icon(
+                              Icons.phone,
+                              color: Constaint.textPrimaryColor,
+                            ),
                             onSave: (value) {
                               if (value!.isEmpty) {
                                 return 'Invalid Phone Number !';
@@ -101,7 +105,8 @@ class _AuthScreenState extends State<AuthScreen> {
                         TextFieldWidget(
                           currentLabel: "Password",
                           obscureText: true,
-                          icon: const Icon(Icons.password),
+                          icon: const Icon(Icons.password,
+                              color: Constaint.textPrimaryColor),
                           onSave: (value) {
                             if (value!.isEmpty || value.length < 5) {
                               return 'Password is too short!';
@@ -117,7 +122,8 @@ class _AuthScreenState extends State<AuthScreen> {
                         ButtonWidget(
                             currentText: const Text(
                               "Login",
-                              style: TextStyle(color: Colors.white),
+                              style:
+                                  TextStyle(color: Constaint.textPrimaryColor),
                             ),
                             submitData: _submit,
                             isLoading: _isLoading),

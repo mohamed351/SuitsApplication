@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../constaint/constaint.dart';
+
 class TextFieldWidget extends StatelessWidget {
   String? currentLabel = "";
   bool? obscureText = false;
@@ -21,7 +23,7 @@ class TextFieldWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.purple[100],
+        color: Constaint.secondaryColor,
         borderRadius: BorderRadius.circular(66),
       ),
       width: double.infinity,
@@ -34,6 +36,7 @@ class TextFieldWidget extends StatelessWidget {
         decoration: InputDecoration(
           hintText: currentLabel,
           border: InputBorder.none,
+          hintStyle: TextStyle(color: Constaint.textPrimaryColor),
           icon: icon,
         ),
       ),

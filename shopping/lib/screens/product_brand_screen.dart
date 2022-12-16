@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/models/product_list.dart';
+import 'package:shopping/providers/product_brand_provider.dart';
 import 'package:shopping/widgets/product_item_widget.dart';
 import '../providers/home_provider.dart';
 import '../providers/products_provider.dart';
@@ -9,7 +10,7 @@ import '../widgets/app_drawer.dart';
 import '../widgets/cart_icon_widget.dart';
 
 class ProductListScreen extends StatefulWidget {
-  static const routerName = "/product-list";
+  static const routerName = "/product-brand-list";
   const ProductListScreen({Key? key}) : super(key: key);
 
   @override
@@ -21,7 +22,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
       PagingController(firstPageKey: 0);
   @override
   void initState() {
-    Provider.of<ProductProvider>(context, listen: false).pageIndex = 0;
+    Provider.of<ProductBrandProvider>(context, listen: false).pageIndex = 0;
     _pagingController.addPageRequestListener((pageKey) {
       _fetchPage(pageKey);
     });
@@ -30,7 +31,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
 
   Future<void> _fetchPage(int pageKey) async {
     try {
-      final pager = Provider.of<ProductProvider>(context, listen: false);
+      final pager = Provider.of<ProductBrandProvider>(context, listen: false);
 
       final newItems = await pager.initailLoad(10);
       final isLastPage = newItems.length == 0;
@@ -48,9 +49,12 @@ class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          title: Text(
+              Provider.of<ProductBrandProvider>(context).brandName.toString())),
       body: RefreshIndicator(
         onRefresh: () async {
-          Provider.of<ProductProvider>(context, listen: false).Refresh();
+          Provider.of<ProductBrandProvider>(context, listen: false).Refresh();
           _pagingController.refresh();
         },
         child: PagedGridView<int, Product>(

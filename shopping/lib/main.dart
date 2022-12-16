@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shopping/providers/auth_provider.dart';
 import 'package:shopping/providers/cart_provider.dart';
 import 'package:shopping/providers/home_provider.dart';
+import 'package:shopping/providers/product_brand_provider.dart';
 import 'package:shopping/providers/products_provider.dart';
 import 'package:shopping/screens/auth_screen.dart';
 import 'package:shopping/screens/cart_screen.dart';
@@ -14,6 +15,7 @@ import 'package:shopping/screens/product_list_screen.dart';
 import 'package:shopping/screens/signUp_screen.dart';
 import 'package:shopping/screens/splash_screen.dart';
 import "package:shopping/providers/invoice_provider.dart";
+
 // import 'package:shopping/screens/product_List_Screen_try.dart';
 void main() {
   runApp(const MyApp());
@@ -46,6 +48,11 @@ class MyApp extends StatelessWidget {
           create: (context) => HomeProvider(""),
           update: (context, value, previous) =>
               HomeProvider(value.token.toString()),
+        ),
+        ChangeNotifierProxyProvider<Auth, ProductBrandProvider>(
+          create: (context) => ProductBrandProvider(""),
+          update: (context, value, previous) =>
+              ProductBrandProvider(value.token.toString()),
         )
       ],
       child: Consumer<Auth>(

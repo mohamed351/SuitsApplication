@@ -7,6 +7,8 @@ import 'package:shopping/screens/auth_screen.dart';
 import 'package:shopping/widgets/button_widget.dart';
 import 'package:shopping/widgets/text_field_widget.dart';
 
+import '../constaint/constaint.dart';
+
 class SignupScreen extends StatelessWidget {
   static const routerName = "/signUp";
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
@@ -30,6 +32,7 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.all(10),
@@ -69,7 +72,10 @@ class SignupScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            icon: Icon(Icons.add_business_rounded),
+                            icon: Icon(
+                              Icons.add_business_rounded,
+                              color: Constaint.textPrimaryColor,
+                            ),
                             obscureText: false,
                             currentLabel: "Pharmacy Name :"),
                         SizedBox(
@@ -85,7 +91,8 @@ class SignupScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            icon: Icon(Icons.person),
+                            icon: Icon(Icons.person,
+                                color: Constaint.textPrimaryColor),
                             obscureText: false,
                             currentLabel: "Doctor's Name :"),
                         SizedBox(
@@ -101,7 +108,8 @@ class SignupScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            icon: Icon(Icons.balance),
+                            icon: Icon(Icons.balance,
+                                color: Constaint.textPrimaryColor),
                             obscureText: false,
                             currentLabel: " Address :"),
                         SizedBox(
@@ -117,7 +125,8 @@ class SignupScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            icon: Icon(Icons.whatsapp),
+                            icon: Icon(Icons.whatsapp,
+                                color: Constaint.textPrimaryColor),
                             obscureText: false,
                             currentLabel: "Phone :",
                             currentKeyBordType: TextInputType.number),
@@ -134,7 +143,8 @@ class SignupScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            icon: Icon(Icons.email),
+                            icon: Icon(Icons.email,
+                                color: Constaint.textPrimaryColor),
                             obscureText: false,
                             currentLabel: "Email :",
                             currentKeyBordType: TextInputType.emailAddress),
@@ -151,7 +161,8 @@ class SignupScreen extends StatelessWidget {
                             }
                             return null;
                           },
-                          icon: Icon(Icons.password),
+                          icon: Icon(Icons.password,
+                              color: Constaint.textPrimaryColor),
                           obscureText: true,
                           currentLabel: "Password :",
                           currentKeyBordType: TextInputType.visiblePassword,

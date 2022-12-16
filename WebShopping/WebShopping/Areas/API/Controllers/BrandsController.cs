@@ -48,6 +48,8 @@ namespace WebShopping.Areas.API.Controllers
         }
 
 
+
+
         // GET: api/Brands/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Brand>> GetBrand(int id)

@@ -59,6 +59,70 @@ namespace WebShopping.Areas.API.Controllers
             return Ok(query);
         }
 
+
+        [HttpGet("brand/{id?}")]
+        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsBrands(int? id,int start = 0, int length = 10, string? search = "")
+        {
+            if(id == null)
+            {
+                return BadRequest("Please Specifie the brand");
+            }
+            var testing = User.GetUserId();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            if (search == null)
+            {
+                search = "";
+            }
+
+            var query = await this.unit.Products.GetDataTable(start, length, a => a.BrandID == id && (a.ArabicName.Contains(search) || a.EnglishName.Contains(search)), a => a.ID, a => new {
+                a.ArabicName,
+                a.DescriptionArabic,
+                a.DescriptionEnglish,
+                a.EnglishName,
+                a.ID,
+                ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl,
+                a.PurchasingPriceForPublic,
+                a.PurchasingPriceForSales,
+                a.Quantity,
+                a.SellingPrice,
+                a.SubCategoryID
+            });
+            return Ok(query);
+        }
+
+        [HttpGet("subCategory/{id?}")]
+        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsCategory(int? id, int start = 0, int length = 10, string? search = "")
+        {
+            if (id == null)
+            {
+                return BadRequest("Please Specifie the brand");
+            }
+            var testing = User.GetUserId();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            if (search == null)
+            {
+                search = "";
+            }
+
+            var query = await this.unit.Products.GetDataTable(start, length, a => a.SubCategoryID == id && (a.ArabicName.Contains(search) || a.EnglishName.Contains(search)), a => a.ID, a => new {
+                a.ArabicName,
+                a.DescriptionArabic,
+                a.DescriptionEnglish,
+                a.EnglishName,
+                a.ID,
+                ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl,
+                a.PurchasingPriceForPublic,
+                a.PurchasingPriceForSales,
+                a.Quantity,
+                a.SellingPrice,
+                a.SubCategoryID
+            });
+            return Ok(query);
+        }
+
+
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)

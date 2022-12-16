@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../constaint/constaint.dart';
+
 class ButtonWidget extends StatelessWidget {
   VoidCallback submitData;
   bool isLoading;
@@ -20,7 +22,8 @@ class ButtonWidget extends StatelessWidget {
             child: ElevatedButton(
                 onPressed: submitData,
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.purple),
+                  backgroundColor:
+                      MaterialStateProperty.all(Constaint.primaryColor),
                   padding: MaterialStateProperty.all(const EdgeInsets.symmetric(
                       horizontal: 106, vertical: 10)),
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(
