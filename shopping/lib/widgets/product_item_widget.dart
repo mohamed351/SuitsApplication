@@ -19,28 +19,33 @@ class ProductItem extends StatelessWidget {
       },
       borderRadius: borderRadius,
       child: Container(
+        padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         decoration: BoxDecoration(
-            borderRadius: borderRadius, color: Colors.grey.shade200),
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white),
+
         child: Column(
           children: [
             Expanded(
-              flex: 8,
-              child: Container(
-                  clipBehavior: Clip.hardEdge,
-                  decoration: BoxDecoration(borderRadius: borderRadius),
+              flex: 7,
+              // child: Container(
+              //     clipBehavior: Clip.hardEdge,
+              //     decoration: BoxDecoration(borderRadius: borderRadius),
                   child: Image.network(
                     fit: BoxFit.cover,
                     this.product.imageUrl!,
-                  )),
+                  ),
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: Text(
                 product.englishName!,
                 style: const TextStyle(
-                  color: Colors.purpleAccent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25,
+                  // color: Color(0xFF4C53A5),
+                  color: Colors.black87,
+                  // fontWeight: FontWeight.bold,
+                  fontSize: 14,
                 ),
               ),
             ),
@@ -49,9 +54,10 @@ class ProductItem extends StatelessWidget {
               child: Text(
                 product.purchasingPriceForPublic.toString() + "LE",
                 style: const TextStyle(
-                  color: Colors.purpleAccent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  color: Colors.black87,
+                  // color: Color(0xFF4C53A5),
+                  // fontWeight: FontWeight.bold,
+                  fontSize: 12,
                 ),
               ),
             )

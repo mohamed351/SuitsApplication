@@ -48,7 +48,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+     backgroundColor: Colors.grey[300] ,
         body: RefreshIndicator(
+
           onRefresh: () async {
             Provider.of<ProductProvider>(context, listen: false).Refresh();
             _pagingController.refresh();
