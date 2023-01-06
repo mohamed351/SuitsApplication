@@ -119,8 +119,8 @@ class _CartScreenState extends State<CartScreen> {
                           children: [
                         Image.network(
                           items[index].imageUrl!,
-                          width: 80,
-                          height: 80,
+                          width: 60,
+                          height: 60,
                         ),
                         SizedBox(
                           width: 130,
