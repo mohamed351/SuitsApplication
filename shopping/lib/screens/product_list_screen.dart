@@ -31,7 +31,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Future<void> _fetchPage(int pageKey) async {
     try {
       final pager = Provider.of<ProductProvider>(context, listen: false);
-
+      print("executed");
       final newItems = await pager.initailLoad(10);
       final isLastPage = newItems.length == 0;
       if (isLastPage) {
@@ -48,7 +48,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       body: RefreshIndicator(
         onRefresh: () async {
           Provider.of<ProductProvider>(context, listen: false).Refresh();
@@ -65,30 +64,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             crossAxisCount: 2,
-=======
-     backgroundColor: Colors.grey[300] ,
-        body: RefreshIndicator(
-
-          onRefresh: () async {
-            Provider.of<ProductProvider>(context, listen: false).Refresh();
-            _pagingController.refresh();
-          },
-          child: PagedGridView<int, Product>(
-            padding: EdgeInsets.only(top: 10, left: 5, right: 5),
-            showNewPageProgressIndicatorAsGridChild: false,
-            showNewPageErrorIndicatorAsGridChild: false,
-            showNoMoreItemsIndicatorAsGridChild: false,
-            pagingController: _pagingController,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 150 / 200,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: 2,
-            ),
-            builderDelegate: PagedChildBuilderDelegate<Product>(
-              itemBuilder: (context, item, index) => ProductItem(item),
-            ),
->>>>>>> a7db5a9005226029926e3fde42d117b7dcf2fcc4
           ),
           builderDelegate: PagedChildBuilderDelegate<Product>(
             itemBuilder: (context, item, index) => ProductItem(item),

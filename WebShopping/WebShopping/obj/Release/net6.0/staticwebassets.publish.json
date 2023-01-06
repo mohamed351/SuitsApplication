@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aGRoPVOzrP5FlvyBtpB4yX+ErrotvbsSjfsSYnxCmjg=",
+  "Hash": "GFyJtJ6+kngBWepSu5/888C1V9zjnDQPVrwQ2OT3C9w=",
   "Source": "WebShopping",
   "BasePath": "_content/WebShopping",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\262a3dcc-3422-4024-bc66-5cd5e8c9c7e0.png"
+    },
+    {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\26494c2a-64b4-4dc7-9fb6-d0011c96a55c.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/26494c2a-64b4-4dc7-9fb6-d0011c96a55c.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\26494c2a-64b4-4dc7-9fb6-d0011c96a55c.png"
     },
     {
       "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\343ed6f8-633c-4239-b143-78695b854041.png",
@@ -321,6 +338,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\9a6395fe-ee24-4e65-8ed1-ae13514d5caa.png"
+    },
+    {
+      "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\9d097eb1-8b98-43dd-83eb-692aad7b78b0.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/9d097eb1-8b98-43dd-83eb-692aad7b78b0.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\9d097eb1-8b98-43dd-83eb-692aad7b78b0.png"
     },
     {
       "Identity": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\wwwroot\\images\\a9988b38-e90b-41e9-b55f-b8824e93efc4.png",

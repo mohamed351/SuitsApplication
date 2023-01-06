@@ -19,8 +19,11 @@
                 $(CROPPER_MODAL).modal("show");
                  $image = $(SOURCE_IMAGE_MODEL);
                 $image.cropper({
+                    getCroppedCanvas: { fillcolor: "#FFF" },
                     aspectRatio: data.aspectRatio == null? (1 / 1) : data.aspectRatio,
-                 modal:true,
+                    modal: true,
+                    highlight: true,
+                    background: true,
                  width:400,
                  width:400,
                  minContainerWidth: data.minContainerWidth == null ? 500: data.minContainerWidth ,
@@ -31,6 +34,7 @@
                  viewMode: 1,   
                     dragMode: 'move',
              crop: function(event) {
+                 console.log(event);
                   $imgData = event.detail;
             //    console.log(event.detail.x);
             // console.log(event.detail.y);
@@ -47,7 +51,7 @@
 
         $(SUBMIT_SELECTOR).on("click",function(){
             var canvas = $image.cropper('getCroppedCanvas');
-              var base64url = canvas.toDataURL('image/jpeg');
+              var base64url = canvas.toDataURL('image/png');
      
          var base64 = base64url.split(',')[1];
            
@@ -77,10 +81,10 @@
                     canvas.height = height;
                     var ctx = canvas.getContext("2d");
                     ctx.drawImage(image, 0, 0, width, height);
-                    var dataurl = canvas.toDataURL("image/jpeg");
+                    var dataurl = canvas.toDataURL("image/png");
                     // fix the the url to be used in img tag
-                    var url = dataurl.replace(/^data:image\/(png|jpg);base64,/, "");
-                    $(SOURCE_IMAGE).attr('src', url);
+                  //  var url = dataurl.replace(/^data:image\/(png|jpg);base64,/, "");
+                    $(SOURCE_IMAGE).attr('src', dataurl);
                     $(CROPPER_MODAL).modal("hide");
                 }
             $(SOURCE_IMAGE).attr("src",base64url);
