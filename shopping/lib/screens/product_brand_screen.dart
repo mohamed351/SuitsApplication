@@ -50,25 +50,36 @@ class _ProductBrandListScreenState extends State<ProductBrandListScreen> {
           backgroundColor: Constaint.primaryColor,
           title: Text(
               Provider.of<ProductBrandProvider>(context).brandName.toString())),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          Provider.of<ProductBrandProvider>(context, listen: false).Refresh();
-          _pagingController.refresh();
-        },
-        child: PagedGridView<int, Product>(
-          padding: EdgeInsets.only(top: 10, left: 5, right: 5),
-          showNewPageProgressIndicatorAsGridChild: false,
-          showNewPageErrorIndicatorAsGridChild: false,
-          showNoMoreItemsIndicatorAsGridChild: false,
-          pagingController: _pagingController,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 150 / 200,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
+      body: Container(
+        height: 700,
+        padding: EdgeInsets.only(top: 15),
+        decoration: BoxDecoration(
+          color: Constaint.thirdColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(55),
+            topRight: Radius.circular(55),
           ),
-          builderDelegate: PagedChildBuilderDelegate<Product>(
-            itemBuilder: (context, item, index) => ProductItem(item),
+        ),
+        child: RefreshIndicator(
+          onRefresh: () async {
+            Provider.of<ProductBrandProvider>(context, listen: false).Refresh();
+            _pagingController.refresh();
+          },
+          child: PagedGridView<int, Product>(
+            padding: EdgeInsets.only(top: 10, left: 5, right: 5),
+            showNewPageProgressIndicatorAsGridChild: false,
+            showNewPageErrorIndicatorAsGridChild: false,
+            showNoMoreItemsIndicatorAsGridChild: false,
+            pagingController: _pagingController,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 150 / 200,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 2,
+            ),
+            builderDelegate: PagedChildBuilderDelegate<Product>(
+              itemBuilder: (context, item, index) => ProductItem(item),
+            ),
           ),
         ),
       ),

@@ -3,6 +3,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/models/product_list.dart';
 import 'package:shopping/widgets/product_item_widget.dart';
+import '../constaint/constaint.dart';
 import '../providers/home_provider.dart';
 import '../providers/products_provider.dart';
 import '../widgets/app_drawer.dart';
@@ -31,7 +32,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Future<void> _fetchPage(int pageKey) async {
     try {
       final pager = Provider.of<ProductProvider>(context, listen: false);
-      print("executed");
+
       final newItems = await pager.initailLoad(10);
       final isLastPage = newItems.length == 0;
       if (isLastPage) {
@@ -48,25 +49,36 @@ class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: RefreshIndicator(
-        onRefresh: () async {
-          Provider.of<ProductProvider>(context, listen: false).Refresh();
-          _pagingController.refresh();
-        },
-        child: PagedGridView<int, Product>(
-          padding: EdgeInsets.only(top: 10, left: 5, right: 5),
-          showNewPageProgressIndicatorAsGridChild: false,
-          showNewPageErrorIndicatorAsGridChild: false,
-          showNoMoreItemsIndicatorAsGridChild: false,
-          pagingController: _pagingController,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 150 / 200,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
+      body: Container(
+        height: 700,
+        padding: EdgeInsets.only(top: 15),
+        decoration: BoxDecoration(
+          color: Constaint.thirdColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(55),
+            topRight: Radius.circular(55),
           ),
-          builderDelegate: PagedChildBuilderDelegate<Product>(
-            itemBuilder: (context, item, index) => ProductItem(item),
+        ),
+        child: RefreshIndicator(
+          onRefresh: () async {
+            Provider.of<ProductProvider>(context, listen: false).Refresh();
+            _pagingController.refresh();
+          },
+          child: PagedGridView<int, Product>(
+            padding: EdgeInsets.only(top: 10, left: 5, right: 5),
+            showNewPageProgressIndicatorAsGridChild: false,
+            showNewPageErrorIndicatorAsGridChild: false,
+            showNoMoreItemsIndicatorAsGridChild: false,
+            pagingController: _pagingController,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 150 / 200,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 2,
+            ),
+            builderDelegate: PagedChildBuilderDelegate<Product>(
+              itemBuilder: (context, item, index) => ProductItem(item),
+            ),
           ),
         ),
       ),
