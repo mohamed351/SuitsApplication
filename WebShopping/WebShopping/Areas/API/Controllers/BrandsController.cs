@@ -28,7 +28,8 @@ namespace WebShopping.Areas.API.Controllers
         {
             string host = httpContextAccessor.HttpContext!.Request.Host.Value;
             string schema = httpContextAccessor.HttpContext.Request.Scheme;
-            return Ok(await _context.Brands.Select(a=> new { 
+            return Ok(await _context.Brands.Select(a=> new {
+                a.ID,
                 a.BrandArabic,
                 a.BrandEnglish,
                ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl
@@ -41,6 +42,7 @@ namespace WebShopping.Areas.API.Controllers
             string host = httpContextAccessor.HttpContext!.Request.Host.Value;
             string schema = httpContextAccessor.HttpContext.Request.Scheme;
             return Ok(await _context.Brands.OrderByDescending(a=> a.ID).Skip(0).Take(10).Select(a => new {
+                a.ID,
                 a.BrandArabic,
                 a.BrandEnglish,
                 ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl

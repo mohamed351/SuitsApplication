@@ -13,14 +13,12 @@ class ProductBrandProvider with ChangeNotifier {
   String? brandName;
   ProductBrandProvider(this.token);
 
-  void addProduct(Product product) {}
-
   Future<List<Product>> initailLoad(int lenght) async {
     var url = await http.get(
         Uri.parse(Constaint.baseURL +
             "/api/Products/brand/${brandId}?start=${pageIndex * lenght}&lenght=$lenght"),
         headers: {"Authorization": "Bearer " + token});
-    print(url.statusCode);
+    print(url.request!.url);
     var productList = ProductList.fromJson(jsonDecode(url.body));
     totalRecords = productList.recordsTotal!;
     for (var element in productList.data!) {
@@ -28,6 +26,12 @@ class ProductBrandProvider with ChangeNotifier {
     }
     pageIndex++;
     return productList.data!;
+  }
+
+  void setBrand(String currentbrandName, int currentBrandID) {
+    brandName = currentbrandName;
+    brandId = currentBrandID;
+    this.notifyListeners();
   }
 
   void Refresh() {

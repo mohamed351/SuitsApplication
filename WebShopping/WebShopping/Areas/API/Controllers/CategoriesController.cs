@@ -28,14 +28,14 @@ namespace WebShopping.Areas.API.Controllers
         {
             string host = httpContextAccessor.HttpContext!.Request.Host.Value;
             string schema = httpContextAccessor.HttpContext.Request.Scheme;
-            return Ok(await _context.Categories.Select(a=> new { a.ArabicName , a.EnglishName , ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl }).ToListAsync());
+            return Ok(await _context.Categories.Select(a=> new {a.ID, a.ArabicName , a.EnglishName , ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl }).ToListAsync());
         }
         [HttpGet("top")]
         public async Task<ActionResult> GetCategoriesTop()
         {
             string host = httpContextAccessor.HttpContext!.Request.Host.Value;
             string schema = httpContextAccessor.HttpContext.Request.Scheme;
-            return Ok(await _context.Categories.Skip(0).Take(10).Select(a => new { a.ArabicName, a.EnglishName, ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl }).ToListAsync());
+            return Ok(await _context.Categories.Skip(0).Take(10).Select(a => new {a.ID, a.ArabicName, a.EnglishName, ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl }).ToListAsync());
         }
 
         // GET: api/Categories/5

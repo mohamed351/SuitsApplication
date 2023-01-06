@@ -4,20 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:shopping/models/product_list.dart';
 import 'package:shopping/providers/product_brand_provider.dart';
 import 'package:shopping/widgets/product_item_widget.dart';
-import '../providers/home_provider.dart';
-import '../providers/products_provider.dart';
-import '../widgets/app_drawer.dart';
-import '../widgets/cart_icon_widget.dart';
+import '../constaint/constaint.dart';
 
-class ProductListScreen extends StatefulWidget {
+class ProductBrandListScreen extends StatefulWidget {
   static const routerName = "/product-brand-list";
-  const ProductListScreen({Key? key}) : super(key: key);
+  const ProductBrandListScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProductListScreen> createState() => _ProductListScreenState();
+  State<ProductBrandListScreen> createState() => _ProductBrandListScreenState();
 }
 
-class _ProductListScreenState extends State<ProductListScreen> {
+class _ProductBrandListScreenState extends State<ProductBrandListScreen> {
   final PagingController<int, Product> _pagingController =
       PagingController(firstPageKey: 0);
   @override
@@ -50,6 +47,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          backgroundColor: Constaint.primaryColor,
           title: Text(
               Provider.of<ProductBrandProvider>(context).brandName.toString())),
       body: RefreshIndicator(
