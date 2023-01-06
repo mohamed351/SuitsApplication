@@ -8,10 +8,12 @@ String SubCategoryToJson(List<SubCategory> data) =>
 
 class SubCategory {
   SubCategory({
+    this.id,
     this.arabicName,
     this.englishName,
     this.imageUrl,
   });
+  int? id;
 
   String? arabicName;
   String? englishName;
@@ -21,11 +23,13 @@ class SubCategory {
         arabicName: json["arabicName"],
         englishName: json["englishName"],
         imageUrl: json["imageUrl"],
+        id: json["id"],
       );
 
   Map<String, dynamic> toJson() => {
         "arabicName": arabicName,
         "englishName": englishName,
         "imageUrl": imageUrl,
+        "id": id
       };
 }

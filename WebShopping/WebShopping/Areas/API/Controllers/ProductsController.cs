@@ -17,14 +17,14 @@ namespace WebShopping.Areas.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProductsController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
         private readonly IUnitOfWork unit;
         private readonly IHttpContextAccessor httpContextAccessor;
 
-        public ProductsController(ApplicationDBContext context, IUnitOfWork unit , IHttpContextAccessor httpContextAccessor)
+        public ProductsController(ApplicationDBContext context, IUnitOfWork unit, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             this.unit = unit;
@@ -33,9 +33,9 @@ namespace WebShopping.Areas.API.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProducts(int start = 0, int length =10, string? search="")
+        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProducts(int start = 0, int length = 10, string? search = "")
         {
-           var testing= User.GetUserId();
+            var testing = User.GetUserId();
             string host = httpContextAccessor.HttpContext!.Request.Host.Value;
             string schema = httpContextAccessor.HttpContext.Request.Scheme;
             if (search == null)
@@ -43,17 +43,17 @@ namespace WebShopping.Areas.API.Controllers
                 search = "";
             }
 
-            var query = await this.unit.Products.GetDataTable(start, length, a => a.ArabicName.Contains(search) || a.EnglishName.Contains(search),a=> a.ID,a=> new { 
+            var query = await this.unit.Products.GetDataTable(start, length, a => a.ArabicName.Contains(search) || a.EnglishName.Contains(search), a => a.ID, a => new {
                 a.ArabicName,
                 a.DescriptionArabic,
                 a.DescriptionEnglish,
                 a.EnglishName,
-                a.ID ,
+                a.ID,
                 ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl,
-                a.PurchasingPriceForPublic ,
-                a.PurchasingPriceForSales ,
-                a.Quantity ,
-                a.SellingPrice ,
+                a.PurchasingPriceForPublic,
+                a.PurchasingPriceForSales,
+                a.Quantity,
+                a.SellingPrice,
                 a.SubCategoryID
             });
             return Ok(query);
@@ -61,9 +61,9 @@ namespace WebShopping.Areas.API.Controllers
 
 
         [HttpGet("brand/{id?}")]
-        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsBrands(int? id,int start = 0, int length = 10, string? search = "")
+        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsBrands(int? id, int start = 0, int length = 10, string? search = "")
         {
-            if(id == null)
+            if (id == null)
             {
                 return BadRequest("Please Specifie the brand");
             }
@@ -92,7 +92,7 @@ namespace WebShopping.Areas.API.Controllers
         }
 
         [HttpGet("subCategory/{id?}")]
-        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsCategory(int? id, int start = 0, int length = 10, string? search = "")
+        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsSubCategoryCategory(int? id, int start = 0, int length = 10, string? search = "")
         {
             if (id == null)
             {
@@ -120,6 +120,13 @@ namespace WebShopping.Areas.API.Controllers
                 a.SubCategoryID
             });
             return Ok(query);
+        }
+
+
+        [HttpGet("Category/{id?}")]
+        public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsCategoryCategory(int? id, int start = 0, int length = 10, string? search = "")
+        {
+            return Ok();
         }
 
 

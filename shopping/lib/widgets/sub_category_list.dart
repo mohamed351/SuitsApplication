@@ -7,6 +7,9 @@ import 'package:provider/provider.dart';
 import 'package:shopping/models/brand.dart';
 import 'package:shopping/providers/home_provider.dart';
 
+import '../providers/sub_category_provider.dart';
+import '../screens/sub_category_screen.dart';
+
 class SubCateogryListWidget extends StatelessWidget {
   const SubCateogryListWidget({super.key});
 
@@ -19,16 +22,27 @@ class SubCateogryListWidget extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return Card(
-              child: Column(
-            children: [
-              Image.network(
-                provider.SubCateogries[index].imageUrl.toString(),
-                width: 100,
-              ),
-              Text(provider.SubCateogries[index].englishName.toString())
-            ],
-          ));
+          return GestureDetector(
+            onTap: () {
+              Provider.of<SubCategoryProvider>(context, listen: false)
+                  .setSubCategory(
+                      provider.SubCateogries[index].englishName.toString(),
+                      provider.SubCateogries[index].id!);
+
+              Navigator.of(context)
+                  .pushNamed(ProductSubCategoryScreen.routerName);
+            },
+            child: Card(
+                child: Column(
+              children: [
+                Image.network(
+                  provider.SubCateogries[index].imageUrl.toString(),
+                  width: 100,
+                ),
+                Text(provider.SubCateogries[index].englishName.toString())
+              ],
+            )),
+          );
         },
         itemCount: provider.SubCateogries.length,
       ),

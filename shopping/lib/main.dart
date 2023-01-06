@@ -5,6 +5,7 @@ import 'package:shopping/providers/cart_provider.dart';
 import 'package:shopping/providers/home_provider.dart';
 import 'package:shopping/providers/product_brand_provider.dart';
 import 'package:shopping/providers/products_provider.dart';
+import 'package:shopping/providers/sub_category_provider.dart';
 import 'package:shopping/screens/auth_screen.dart';
 import 'package:shopping/screens/cart_screen.dart';
 import 'package:shopping/screens/home_screen.dart';
@@ -16,6 +17,7 @@ import 'package:shopping/screens/product_list_screen.dart';
 import 'package:shopping/screens/signUp_screen.dart';
 import 'package:shopping/screens/splash_screen.dart';
 import "package:shopping/providers/invoice_provider.dart";
+import 'package:shopping/screens/sub_category_screen.dart';
 
 // import 'package:shopping/screens/product_List_Screen_try.dart';
 void main() {
@@ -54,6 +56,11 @@ class MyApp extends StatelessWidget {
           create: (context) => ProductBrandProvider(""),
           update: (context, value, previous) =>
               ProductBrandProvider(value.token.toString()),
+        ),
+        ChangeNotifierProxyProvider<Auth, SubCategoryProvider>(
+          create: (context) => SubCategoryProvider(""),
+          update: (context, value, previous) =>
+              SubCategoryProvider(value.token.toString()),
         )
       ],
       child: Consumer<Auth>(
@@ -82,7 +89,11 @@ class MyApp extends StatelessWidget {
             InvoiceDetailsScreen.routerName: (context) =>
                 InvoiceDetailsScreen(),
             ProductBrandListScreen.routerName: (context) =>
-                ProductBrandListScreen()
+                ProductBrandListScreen(),
+            ProductBrandListScreen.routerName: (context) =>
+                ProductBrandListScreen(),
+            ProductSubCategoryScreen.routerName: (context) =>
+                ProductSubCategoryScreen()
           },
         ),
       ),
