@@ -54,7 +54,8 @@ namespace WebShopping.Areas.API.Controllers
                 a.PurchasingPriceForSales,
                 a.Quantity,
                 a.SellingPrice,
-                a.SubCategoryID
+                a.SubCategoryID,
+               UserQuantity =  a.Carts.FirstOrDefault(a=> a.UserID == testing) == null ?0 : a.Carts.FirstOrDefault(a => a.UserID == testing)!.Quantity
             });
             return Ok(query);
         }
@@ -86,7 +87,10 @@ namespace WebShopping.Areas.API.Controllers
                 a.PurchasingPriceForSales,
                 a.Quantity,
                 a.SellingPrice,
-                a.SubCategoryID
+                a.SubCategoryID,
+                UserQuantity = a.Carts.FirstOrDefault(a => a.UserID == testing) == null ? 0 : a.Carts.FirstOrDefault(a => a.UserID == testing)!.Quantity
+
+
             });
             return Ok(query);
         }
@@ -117,7 +121,8 @@ namespace WebShopping.Areas.API.Controllers
                 a.PurchasingPriceForSales,
                 a.Quantity,
                 a.SellingPrice,
-                a.SubCategoryID
+                a.SubCategoryID,
+                UserQuantity = a.Carts.FirstOrDefault(a => a.UserID == testing) == null ? 0 : a.Carts.FirstOrDefault(a => a.UserID == testing)!.Quantity
             });
             return Ok(query);
         }
@@ -126,7 +131,33 @@ namespace WebShopping.Areas.API.Controllers
         [HttpGet("Category/{id?}")]
         public async Task<ActionResult<IEnumerable<DataTableViewModel<Product>>>> GetProductsCategoryCategory(int? id, int start = 0, int length = 10, string? search = "")
         {
-            return Ok();
+            if (id == null)
+            {
+                return BadRequest("Please Specifie the brand");
+            }
+            var testing = User.GetUserId();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+            if (search == null)
+            {
+                search = "";
+            }
+
+            var query = await this.unit.Products.GetDataTable(start, length, a => a.SubCategory.CategoryID == id && (a.ArabicName.Contains(search) || a.EnglishName.Contains(search)), a => a.ID, a => new {
+                a.ArabicName,
+                a.DescriptionArabic,
+                a.DescriptionEnglish,
+                a.EnglishName,
+                a.ID,
+                ImageUrl = schema + "://" + host + "/api/Image/" + a.ImageUrl,
+                a.PurchasingPriceForPublic,
+                a.PurchasingPriceForSales,
+                a.Quantity,
+                a.SellingPrice,
+                a.SubCategoryID,
+                UserQuantity = a.Carts.FirstOrDefault(a => a.UserID == testing) == null ? 0 : a.Carts.FirstOrDefault(a => a.UserID == testing)!.Quantity
+            });
+            return Ok(query);
         }
 
 

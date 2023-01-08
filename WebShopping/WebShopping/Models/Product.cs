@@ -5,6 +5,10 @@ namespace WebShopping.Models
 {
     public class Product
     {
+        public Product()
+        {
+            this.Carts = new HashSet<Cart>();
+        }
         public int ID { get; set; }
 
         public string EnglishName { get; set; } = String.Empty;
@@ -40,6 +44,10 @@ namespace WebShopping.Models
 
 
         public Brand? Brand { get; set; }
+
+
+
+        public ICollection<Cart> Carts { get; set; }
 
 
 

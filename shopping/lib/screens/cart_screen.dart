@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/constaint/constaint.dart';
-import 'package:shopping/models/Cart.dart';
-import 'package:shopping/models/cart.dart';
 import 'package:shopping/models/invoice_submit.dart';
 import 'package:shopping/providers/cart_provider.dart';
 import "package:shopping/providers/invoice_provider.dart";
+
+import '../widgets/cart_card_widget.dart';
 
 class CartScreen extends StatefulWidget {
   static const routerName = "/cartScreen";
@@ -74,152 +72,103 @@ class _CartScreenState extends State<CartScreen> {
         backgroundColor: Constaint.primaryColor,
         title: Text("Cart "),
       ),
-      bottomSheet: Container(
-        child: Row(
+      bottomNavigationBar: Container(
+        color: Constaint.thirdColor,
+        padding: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+        // padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        height: 110,
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Consumer<CartProvider>(
-              builder: (context, value, child) => Expanded(
-                child: Text(
-                  value.totalInvoice.toStringAsFixed(2) + " LE",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Constaint.primaryColor, fontSize: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "TOTAL:",
+                  style: TextStyle(
+                    color: Constaint.primaryColor,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+                Consumer<CartProvider>(
+                  builder: (context, value, child) => Expanded(
+                    child: Text(
+                      value.totalInvoice.toStringAsFixed(2) + " LE",
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          color: Constaint.primaryColor,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-                child: ElevatedButton(
+            Container(
+                alignment: Alignment.center,
+                height: 50,
+                decoration: BoxDecoration(
+                    color: Constaint.primaryColor,
+                    borderRadius: BorderRadius.circular(20)),
+                child: TextButton(
                     onPressed: () async {
                       await SubmitInvoice(context);
                       Navigator.of(context).pop();
                     },
-                    child: Text(
+                    child: const Text(
                       "Submit Invoice ",
                       textAlign: TextAlign.center,
-                    )))
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ))),
           ],
         ),
       ),
-      body: FutureBuilder(
-        future: Provider.of<CartProvider>(context, listen: false).GetCart(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else {
-            var items = Provider.of<CartProvider>(context, listen: false).Items;
+      body: Container(
+        height: 700,
+        padding: const EdgeInsets.only(top: 15),
+        decoration: const BoxDecoration(
+          color: Constaint.thirdColor,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(55),
+            topRight: Radius.circular(55),
+          ),
+        ),
+        child: FutureBuilder(
+          future: Provider.of<CartProvider>(context, listen: true).GetCart(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              var items =
+                  Provider.of<CartProvider>(context, listen: false).Items;
 
-            return ListView.builder(
-                itemBuilder: (context, index) {
-                  return Card(
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                        Image.network(
-                          items[index].imageUrl!,
-                          width: 60,
-                          height: 60,
-                        ),
-                        SizedBox(
-                          width: 130,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(
-                                height: 5.0,
-                              ),
-                              RichText(
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                text: TextSpan(
-                                    text: 'Name: ',
-                                    style: TextStyle(
-                                        color: Colors.blueGrey.shade800,
-                                        fontSize: 16.0),
-                                    children: [
-                                      TextSpan(
-                                          text:
-                                              '${items[index].englishName.toString()}\n',
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ]),
-                              ),
-                              RichText(
-                                maxLines: 1,
-                                text: TextSpan(
-                                    text: 'Unit:  ',
-                                    style: TextStyle(
-                                        color: Colors.blueGrey.shade800,
-                                        fontSize: 16.0),
-                                    children: [
-                                      TextSpan(
-                                          text:
-                                              '${items[index].quantity.toString()}\n',
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ]),
-                              ),
-                              RichText(
-                                maxLines: 1,
-                                text: TextSpan(
-                                    text: 'Price: ',
-                                    style: TextStyle(
-                                        color: Colors.blueGrey.shade800,
-                                        fontSize: 16.0),
-                                    children: [
-                                      TextSpan(
-                                          text:
-                                              '${items[index].purchasingPriceForSales.toString()}\n',
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ]),
-                              ),
-                              RichText(
-                                maxLines: 1,
-                                text: TextSpan(
-                                    text: 'Total:  ',
-                                    style: TextStyle(
-                                        color: Colors.blueGrey.shade800,
-                                        fontSize: 16.0),
-                                    children: [
-                                      TextSpan(
-                                          text:
-                                              '${items[index].totalSales.toString()}\n',
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ]),
-                              )
-                            ],
-                          ),
-                        ),
-                        RemoveButton(
-                          productId: items[index].productId,
-                        )
-                      ]));
-                },
-                itemCount: items.length);
-          }
-        },
+              return ListView.builder(
+                  itemBuilder: (context, index) {
+                    return CartCardWidget(
+                      cart: items[index],
+                    );
+                  },
+                  itemCount: items.length);
+            }
+          },
+        ),
       ),
     );
   }
 }
 
-class RemoveButton extends StatelessWidget {
-  const RemoveButton({Key? key, required this.productId}) : super(key: key);
 
-  final productId;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: Colors.red),
-        onPressed: () async {
-          await Provider.of<CartProvider>(context, listen: false)
-              .DeleteCart(productId);
-        },
-        child: const Text('Remove'));
-  }
-}
+// Text(
+// // '${items[index].englishName.toString()}\n' ,
+// // style: TextStyle(
+// // color: Colors.black,
+// // fontWeight: FontWeight.w500,
+// //
+// ),
