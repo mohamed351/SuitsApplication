@@ -67,6 +67,33 @@ class CartProvider with ChangeNotifier {
     }
   }
 
+  Future<void> DeductToCart(AddingCart addingCart) async {
+    var response = await http.post(
+        Uri.parse("${Constaint.baseURL}/api/Cart/Deduct"),
+        body: json.encode(addingCart.toJson()),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        });
+    if (response.statusCode == 200) {
+      print("rebuild");
+      notifyListeners();
+    }
+  }
+
+  Future<void> SetCart(AddingCart addingCart) async {
+    var response = await http.post(
+        Uri.parse("${Constaint.baseURL}/api/Cart/SetQuantity"),
+        body: json.encode(addingCart.toJson()),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + token
+        });
+    if (response.statusCode == 200) {
+      notifyListeners();
+    }
+  }
+
   Future<void> ClearCart() async {
     this.Items.clear();
     this.notifyListeners();

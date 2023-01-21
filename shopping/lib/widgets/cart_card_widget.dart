@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping/models/adding_cart.dart';
+import '../../providers/products_provider.dart';
 
 import '../constaint/constaint.dart';
 import '../models/Cart.dart';
@@ -127,7 +129,15 @@ class CartCardWidget extends StatelessWidget {
                     children: [
                       Expanded(
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () async {
+                            await Provider.of<CartProvider>(context,
+                                    listen: false)
+                                .AddToCart(AddingCart(
+                                    productID: cart.productId!, quantity: 1));
+                            Provider.of<ProductProvider>(context, listen: false)
+                                .getSelectedProduct(cart.productId);
+                            // Provider.of<ProductProvider>(context, listen: true)
+                          },
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -174,9 +184,21 @@ class CartCardWidget extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            child: const Icon(
-                              Icons.remove,
-                              size: 18,
+                            child: GestureDetector(
+                              onTap: () async {
+                                await Provider.of<CartProvider>(context,
+                                        listen: false)
+                                    .DeductToCart(AddingCart(
+                                        productID: cart.productId!,
+                                        quantity: 1));
+                                Provider.of<ProductProvider>(context,
+                                        listen: false)
+                                    .getSelectedProduct(cart.productId);
+                              },
+                              child: Icon(
+                                Icons.remove,
+                                size: 18,
+                              ),
                             ),
                           ),
                         ),

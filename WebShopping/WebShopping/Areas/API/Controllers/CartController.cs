@@ -70,6 +70,53 @@ namespace WebShopping.Areas.API.Controllers
 
             return Ok(currentUser);
         }
+
+        [HttpPost("Deduct")]
+        public IActionResult DeductCart([FromBody] CartDTO cart)
+        {
+            var currentUser = User.GetUserId();
+            var currentCart = context.Carts.FirstOrDefault(a => a.ProductID == cart.ProductID && a.UserID == currentUser);
+            if(currentCart == null)
+            {
+                return NotFound();
+            }
+            currentCart.Quantity -= cart.Quantity;
+            if(currentCart.Quantity <= 0)
+            {
+                context.Carts.Remove(currentCart);
+            }
+
+            context.SaveChanges();
+
+
+            return Ok(currentUser);
+        }
+        [HttpPost("SetQuantity")]
+        public IActionResult SetQuantity([FromBody] CartDTO cart)
+        {
+            var currentUser = User.GetUserId();
+            var currentCart = context.Carts.FirstOrDefault(a => a.ProductID == cart.ProductID && a.UserID == currentUser);
+            if (currentCart == null)
+            {
+                context.Carts.Add(new Cart() {UserID = currentUser, ProductID = cart.ProductID, Quantity = cart.Quantity });
+            }
+            else
+            {
+
+                currentCart.Quantity = cart.Quantity;
+                if (currentCart.Quantity <= 0)
+                {
+                    context.Carts.Remove(currentCart);
+                }
+            }
+            
+
+            context.SaveChanges();
+
+
+            return Ok(currentUser);
+        }
+
         [HttpDelete("{ProductID?}")]
         public async  Task<IActionResult> DeleteCart(int? ProductID)
         {

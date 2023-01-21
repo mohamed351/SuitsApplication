@@ -48,8 +48,9 @@ class _ProductBrandListScreenState extends State<ProductBrandListScreen> {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Constaint.primaryColor,
-          title: Text(
-              Provider.of<ProductBrandProvider>(context).brandName.toString())),
+          title: Text(Provider.of<ProductBrandProvider>(context, listen: true)
+              .brandName
+              .toString())),
       body: Container(
         height: 700,
         padding: EdgeInsets.only(top: 15),

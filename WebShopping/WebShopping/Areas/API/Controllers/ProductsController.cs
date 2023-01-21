@@ -163,16 +163,33 @@ namespace WebShopping.Areas.API.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult> GetProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products.Include(a=> a.Carts).FirstOrDefaultAsync(a=> a.ID == id);
+            var testing = User.GetUserId();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            return product;
+            return Ok(new {
+                product.ID,
+                product.BrandID,
+                product.DescriptionArabic,
+                product.DescriptionEnglish,
+                product.EnglishName ,
+                product.ArabicName,
+                ImageUrl = schema + "://" + host + "/api/Image/" + product.ImageUrl,
+                product.SellingPrice ,
+                product.PurchasingPriceForPublic,
+                product.PurchasingPriceForSales,
+                product.SubCategoryID ,
+                UserQuantity = product.Carts.FirstOrDefault() == null ? 0 : product.Carts.FirstOrDefault().Quantity
+
+            });
         }
 
         // PUT: api/Products/5

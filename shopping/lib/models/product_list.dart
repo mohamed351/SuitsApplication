@@ -39,6 +39,7 @@ class Product {
   int? quantity;
   double? sellingPrice;
   int? subCategoryID;
+  int? userQuantity;
 
   Product(
       {this.arabicName,
@@ -51,7 +52,8 @@ class Product {
       this.purchasingPriceForSales,
       this.quantity,
       this.sellingPrice,
-      this.subCategoryID});
+      this.subCategoryID,
+      this.userQuantity});
 
   Product.fromJson(Map<String, dynamic> json) {
     arabicName = json['arabicName'];
@@ -65,6 +67,7 @@ class Product {
     quantity = json['quantity'];
     sellingPrice = json['sellingPrice'];
     subCategoryID = json['subCategoryID'];
+    userQuantity = json["userQuantity"];
   }
 
   Map<String, dynamic> toJson() {
@@ -80,6 +83,7 @@ class Product {
     data['quantity'] = quantity;
     data['sellingPrice'] = sellingPrice;
     data['subCategoryID'] = subCategoryID;
+    data["userQuantity"] = userQuantity;
     return data;
   }
 }

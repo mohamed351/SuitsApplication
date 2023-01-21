@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping/models/product_list.dart';
+import 'package:shopping/providers/products_provider.dart';
 import 'package:shopping/screens/product_details_screen.dart';
 
 import '../constaint/constaint.dart';
@@ -17,7 +19,7 @@ class ProductItem extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context)
-            .pushNamed(ProductDetail.routerName, arguments: this.product);
+            .pushNamed(ProductDetail.routerName, arguments: this.product.id);
       },
       borderRadius: borderRadius,
       child: Container(
