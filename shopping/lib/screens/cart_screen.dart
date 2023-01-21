@@ -141,22 +141,15 @@ class _CartScreenState extends State<CartScreen> {
         child: FutureBuilder(
           future: Provider.of<CartProvider>(context, listen: true).GetCart(),
           builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else {
-              var items =
-                  Provider.of<CartProvider>(context, listen: false).Items;
+            var items = Provider.of<CartProvider>(context, listen: false).Items;
 
-              return ListView.builder(
-                  itemBuilder: (context, index) {
-                    return CartCardWidget(
-                      cart: items[index],
-                    );
-                  },
-                  itemCount: items.length);
-            }
+            return ListView.builder(
+                itemBuilder: (context, index) {
+                  return CartCardWidget(
+                    cart: items[index],
+                  );
+                },
+                itemCount: items.length);
           },
         ),
       ),
