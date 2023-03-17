@@ -37,6 +37,7 @@ namespace WebShopping.Areas.API.Controllers
                 a.IsDeleted,
                 a.TotalInvoice,
                 a.InvoiceDate,
+             
                User = currentUser!.PharmacyName,
                currentUser.Address,
                 Details = a.InvoiceDetails.Select(a =>
@@ -45,7 +46,9 @@ namespace WebShopping.Areas.API.Controllers
                     a.Product.ArabicName,
                     a.Price,
                     a.Quantity,
-                    a.Total
+                    a.Total,
+                   
+                   
                 })
                 
             });
