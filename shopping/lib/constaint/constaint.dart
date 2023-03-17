@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Constaint {
-  static const String baseURL = "http://192.168.1.19:9092";
-  // static const String baseURL = "http://amierkamel-001-site1.htempurl.com";
+ // static const String baseURL = "http://192.168.1.19:9092";
+   static const String baseURL = "http://amerkamel351-001-site1.ftempurl.com";
   static const Color primaryColor = Color(0xFF4C53A5);
   static const Color secondaryColor = Color.fromARGB(255, 105, 109, 160);
   static const Color textPrimaryColor = Colors.white;
