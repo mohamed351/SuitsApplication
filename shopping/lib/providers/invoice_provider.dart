@@ -20,7 +20,24 @@ class InvoiceProvider with ChangeNotifier {
     _invoiceList.clear();
     if (response.statusCode == 200) {
       print(response.body);
-      _invoiceList = InvoiceListFromJson(response.body);
+      var elements = InvoiceListFromJson(response.body);
+      _invoiceList =
+          elements.where((element) => element.isApproved == false).toList();
+      notifyListeners();
+      return _invoiceList;
+    }
+    return [];
+  }
+
+  Future<List<InvoiceList>> Approved_getInvoice() async {
+    var response = await http.get(Uri.parse("${Constaint.baseURL}/api/Invoice"),
+        headers: {"Authorization": "Bearer " + this.token});
+    _invoiceList.clear();
+    if (response.statusCode == 200) {
+      print(response.body);
+      var elements = InvoiceListFromJson(response.body);
+      _invoiceList =
+          elements.where((element) => element.isApproved == true).toList();
       notifyListeners();
       return _invoiceList;
     }
