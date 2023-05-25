@@ -8,153 +8,153 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebShopping
 build_property.RootNamespace = WebShopping
-build_property.ProjectDir = D:\RealProjects\MobileShop\Application\WebShopping\WebShopping\
+build_property.ProjectDir = E:\Applications\Mobile Applicatiions\SuitsApplication\WebShopping\WebShopping\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\RealProjects\MobileShop\Application\WebShopping\WebShopping
+build_property.MSBuildProjectDirectory = E:\Applications\Mobile Applicatiions\SuitsApplication\WebShopping\WebShopping
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Create.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Areas/API/Views/SubCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Delete.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Areas/API/Views/SubCategories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Details.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Areas/API/Views/SubCategories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Edit.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Areas/API/Views/SubCategories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Areas/API/Views/SubCategories/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Areas/API/Views/SubCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQVBJXFZpZXdzXFN1YkNhdGVnb3JpZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Account/Login.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Brands/Create.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Brands/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Brands/Delete.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Brands/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Brands/Details.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Brands/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Brands/Edit.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Brands/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Brands/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Brands/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Categories/Create.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Categories/Delete.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Categories/Details.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Categories/Edit.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Categories/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Home/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Home/Privacy.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Invoices/Details.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Invoices/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Invoices/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Invoices/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52b2ljZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Products/Create.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Products/Delete.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Products/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Products/Details.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Products/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Products/Edit.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Products/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Products/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Shared/Error.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/SubCategories/Create.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/SubCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/SubCategories/Delete.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/SubCategories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/SubCategories/Details.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/SubCategories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/SubCategories/Edit.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/SubCategories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/SubCategories/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/SubCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/User/Index.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/_ViewImports.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/_ViewStart.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/RealProjects/MobileShop/Application/WebShopping/WebShopping/Views/Shared/_Layout.cshtml]
+[E:/Applications/Mobile Applicatiions/SuitsApplication/WebShopping/WebShopping/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-xwqwtqq37e

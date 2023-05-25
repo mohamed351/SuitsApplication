@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DS4sGlfLk4MgKRs0K8WjX6QKCzBpzpEr27b+ktJ41xBmCivwAlC/lLFj9W/HrxHExTZPDyF4tEWTA3h7Hk5dLw==",
+  "dgSpecHash": "WJHeu12ATC0302PeEUxL+BJKVgHFB2JZlSvCr1zYfsMNAzmdRKXS/owHopBUhkbUfw12xQMP19Fc8Czjo12z5w==",
   "success": true,
-  "projectFilePath": "D:\\RealProjects\\MobileShop\\Application\\WebShopping\\WebShopping\\WebShopping.csproj",
+  "projectFilePath": "E:\\Applications\\Mobile Applicatiions\\SuitsApplication\\WebShopping\\WebShopping\\WebShopping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moham\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\linqkit.core\\1.2.2\\linqkit.core.1.2.2.nupkg.sha512",
