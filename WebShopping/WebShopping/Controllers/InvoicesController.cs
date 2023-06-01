@@ -31,7 +31,7 @@ namespace WebShopping.Controllers
                 a.InvoiceDate,
                 a.CurrencyCode,
                 a.User.PhoneNumber,
-                a.TotalInvoice,
+                a.TotalInvoice,   
                 a.IsApproved
                 
 

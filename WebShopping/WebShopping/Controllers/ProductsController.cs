@@ -75,7 +75,7 @@ namespace WebShopping.Controllers
     
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,EnglishName,ArabicName,SellingPrice,PurchasingPriceForPublic,PurchasingPriceForSales,Quantity,ImageUrl,DescriptionArabic,DescriptionEnglish,IsDeleted,SubCategoryID")] Product product)
+        public async Task<IActionResult> Create([Bind("ID,EnglishName,ArabicName,SellingPrice,PurchasingPriceForPublic,PurchasingPriceForSales,Quantity,ImageUrl,DescriptionArabic,DescriptionEnglish,IsDeleted,BarCode,SubCategoryID")] Product product)
         {
             product.IsDeleted = false;
             if (ModelState.IsValid)
@@ -114,7 +114,7 @@ namespace WebShopping.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,EnglishName,ArabicName,SellingPrice,PurchasingPriceForPublic,PurchasingPriceForSales,Quantity,ImageUrl,DescriptionArabic,DescriptionEnglish,IsDeleted,SubCategoryID,BrandID")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,EnglishName,ArabicName,SellingPrice,PurchasingPriceForPublic,PurchasingPriceForSales,Quantity,ImageUrl,DescriptionArabic,DescriptionEnglish,IsDeleted,SubCategoryID,BrandID,BarCode")] Product product)
         {
             if (id != product.ID)
             {
@@ -158,6 +158,19 @@ namespace WebShopping.Controllers
             return View(product);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> IsBarCodeExist([FromQuery] int? ProductID , [FromQuery]string BarCode)
+        {
+            if(ProductID == null)
+            {
+                return Json(!this._context.Products.Any(a => a.BarCode == BarCode));
+            }
+            else
+            {
+                return Json(!this._context.Products.Any(a => a.BarCode == BarCode && a.ID != ProductID));
+            }
+        
+        }
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

@@ -387,6 +387,10 @@ namespace WebShopping.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("BarCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("BrandID")
                         .HasColumnType("int");
 
@@ -516,7 +520,7 @@ namespace WebShopping.Migrations
             modelBuilder.Entity("WebShopping.Models.Cart", b =>
                 {
                     b.HasOne("WebShopping.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("Carts")
                         .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -603,6 +607,11 @@ namespace WebShopping.Migrations
             modelBuilder.Entity("WebShopping.Models.Invoice", b =>
                 {
                     b.Navigation("InvoiceDetails");
+                });
+
+            modelBuilder.Entity("WebShopping.Models.Product", b =>
+                {
+                    b.Navigation("Carts");
                 });
 
             modelBuilder.Entity("WebShopping.Models.SubCategory", b =>

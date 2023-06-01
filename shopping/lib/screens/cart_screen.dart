@@ -112,6 +112,9 @@ class _CartScreenState extends State<CartScreen> {
                     color: Constaint.primaryColor,
                     borderRadius: BorderRadius.circular(20)),
                 child: TextButton(
+                    style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all(
+                            Size(double.infinity, 50))),
                     onPressed: () async {
                       await SubmitInvoice(context);
                       Navigator.of(context).pop();

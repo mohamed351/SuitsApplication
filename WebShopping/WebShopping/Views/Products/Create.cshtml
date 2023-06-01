@@ -28,17 +28,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="SellingPrice" class="control-label"></label>
-                <input asp-for="SellingPrice" class="form-control" />
+                <input type="number" asp-for="SellingPrice" class="form-control" />
                 <span asp-validation-for="SellingPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PurchasingPriceForPublic" class="control-label"></label>
-                <input asp-for="PurchasingPriceForPublic" class="form-control" />
+                <input  type="number" asp-for="PurchasingPriceForPublic" class="form-control" />
                 <span asp-validation-for="PurchasingPriceForPublic" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PurchasingPriceForSales" class="control-label"></label>
-                <input asp-for="PurchasingPriceForSales" class="form-control" />
+                <input  type="number" asp-for="PurchasingPriceForSales" class="form-control" />
                 <span asp-validation-for="PurchasingPriceForSales" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -46,6 +46,13 @@
                 <input asp-for="Quantity" class="form-control" />
                 <span asp-validation-for="Quantity" class="text-danger"></span>
             </div>
+
+                <div class="form-group">
+                    <label asp-for="BarCode" class="control-label"></label>
+                    <input asp-for="BarCode" class="form-control" />
+                    <span asp-validation-for="BarCode" class="text-danger"></span>
+                </div>
+
             <div class="form-group">
                 
                     <div style="width:400px; height:400px;">
@@ -144,7 +151,18 @@
                 maxCropBoxHeight: 400
             });
         });
-
+        $("form").validate({
+            rules:{
+                BarCode:{
+                    remote: "/Products/IsBarCodeExist"
+                }
+            },
+            messages:{
+                BarCode: {
+                    remote:"Barcode is duplicated"
+                }
+            }
+        })
 
         $("form").on("submit", () => {
             $("#ImageUrl").val($("#image-src").attr("src"));

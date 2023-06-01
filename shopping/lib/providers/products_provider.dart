@@ -57,5 +57,6 @@ class ProductProvider with ChangeNotifier {
   void Refresh() {
     pageIndex = 0;
     list = [];
+    notifyListeners();
   }
 }

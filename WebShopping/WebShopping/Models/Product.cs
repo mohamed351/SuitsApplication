@@ -45,6 +45,8 @@ namespace WebShopping.Models
 
         public Brand? Brand { get; set; }
 
+        public string BarCode { get; set; }
+
 
 
         public ICollection<Cart> Carts { get; set; }

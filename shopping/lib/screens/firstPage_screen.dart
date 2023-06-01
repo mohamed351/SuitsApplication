@@ -48,22 +48,36 @@ class FirstPageHome extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              margin: EdgeInsets.only(left: 5),
-                              height: 50,
-                              width: 300,
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: " Search here... ",
+                            Expanded(
+                              flex: 5,
+                              child: Container(
+                                margin: EdgeInsets.only(left: 5),
+                                height: 50,
+                                child: TextFormField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: " Search here... ",
+                                  ),
                                 ),
                               ),
                             ),
-                            Icon(
-                              Icons.camera_alt,
-                              size: 27,
-                              color: Constaint.primaryColor,
+                            const Expanded(
+                              flex: 1,
+                              child: Icon(
+                                Icons.search,
+                                size: 27,
+                                color: Constaint.primaryColor,
+                              ),
+                            ),
+                            const Expanded(
+                              flex: 1,
+                              child: Icon(
+                                Icons.camera_alt,
+                                size: 27,
+                                color: Constaint.primaryColor,
+                              ),
                             ),
                           ],
                         ),

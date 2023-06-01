@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kjwaWFb3Dfi68eeQnwndR6uCcrY8y5eAACI3hWqcqbU=",
+  "Hash": "cnXxj3wPGFv32eBYhojy3lwlbhKpgoXKPeT3zxJv4F0=",
   "Source": "WebShopping",
   "BasePath": "_content/WebShopping",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\492ae543-2fdb-4e81-8dfa-da1a67223f02.png"
+    },
+    {
+      "Identity": "E:\\Applications\\Mobile Applicatiions\\SuitsApplication\\WebShopping\\WebShopping\\wwwroot\\images\\57a7c319-9405-4e4e-9e7c-f307a044b2eb.png",
+      "SourceId": "WebShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Applications\\Mobile Applicatiions\\SuitsApplication\\WebShopping\\WebShopping\\wwwroot\\",
+      "BasePath": "_content/WebShopping",
+      "RelativePath": "images/57a7c319-9405-4e4e-9e7c-f307a044b2eb.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\57a7c319-9405-4e4e-9e7c-f307a044b2eb.png"
     },
     {
       "Identity": "E:\\Applications\\Mobile Applicatiions\\SuitsApplication\\WebShopping\\WebShopping\\wwwroot\\images\\63b68f6a-4a3f-4ce8-9cb6-ee60101e9314.png",

@@ -38,11 +38,15 @@ class _ProductDetailState extends State<ProductDetail> {
             children: [
               Container(
                   alignment: Alignment.center,
+                  width: double.infinity,
                   height: 50,
                   decoration: BoxDecoration(
                       color: Constaint.primaryColor,
                       borderRadius: BorderRadius.circular(20)),
                   child: TextButton(
+                      style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all(
+                              Size(double.infinity, 50))),
                       onPressed: () async {
                         final selectedProduct =
                             Provider.of<ProductProvider>(context, listen: false)
@@ -162,23 +166,26 @@ class _ProductDetailState extends State<ProductDetail> {
                                             ),
                                           ),
                                         ),
-                                        Container(
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 10),
-                                          child: Text(
-                                            Provider.of<ProductProvider>(
-                                                    context,
-                                                    listen: true)
-                                                .selectedProduct!
-                                                .userQuantity
-                                                .toString(),
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                              color: Constaint.primaryColor,
+                                        Consumer<ProductProvider>(
+                                            builder: (context, value, child) {
+                                          return Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 10),
+                                            child: Text(
+                                              Provider.of<ProductProvider>(
+                                                      context,
+                                                      listen: true)
+                                                  .selectedProduct!
+                                                  .userQuantity
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                                color: Constaint.primaryColor,
+                                              ),
                                             ),
-                                          ),
-                                        ),
+                                          );
+                                        }),
                                         Container(
                                           padding: EdgeInsets.all(4),
                                           decoration: BoxDecoration(

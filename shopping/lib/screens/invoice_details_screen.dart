@@ -93,70 +93,80 @@ class InvoiceDetailsScreen extends StatelessWidget {
                   SizedBox(
                     height: 25,
                   ),
-                  Table(
-                    border: TableBorder.all(color: Colors.black, width: 1.5),
-                    children: [
-                      TableRow(children: [
-                        Container(
-                            padding: const EdgeInsets.all(10),
-                            child: const Text(
-                              "Product",
-                              textAlign: TextAlign.center,
-                            )),
-                        Container(
-                            padding: const EdgeInsets.all(10),
-                            child: const Text(
-                              "Price",
-                              textAlign: TextAlign.center,
-                            )),
-                        Container(
-                            padding: const EdgeInsets.all(10),
-                            child: const Text(
-                              "Quantity",
-                              textAlign: TextAlign.center,
-                            )),
-                        Container(
-                            padding: const EdgeInsets.all(10),
-                            child: const Text(
-                              "Total",
-                              textAlign: TextAlign.center,
-                            )),
-                      ]),
-                      ...invoice.details!.map((e) {
-                        return TableRow(children: [
-                          Container(
-                            // ignore: sort_child_properties_last
-                            child: Text(
-                              e.englishName!,
-                              textAlign: TextAlign.center,
-                            ),
-                            padding: EdgeInsets.all(10),
-                          ),
-                          Container(
-                            child: Text(
-                              "${e.price!.toStringAsFixed(2)} LE",
-                              textAlign: TextAlign.center,
-                            ),
-                            padding: EdgeInsets.all(10),
-                          ),
-                          Container(
-                            child: Text(
-                              e.quantity!.toStringAsFixed(0),
-                              textAlign: TextAlign.center,
-                            ),
-                            padding: EdgeInsets.all(10),
-                          ),
-                          Container(
-                            child: Text(
-                              e.total.toString(),
-                              textAlign: TextAlign.center,
-                            ),
-                            padding: EdgeInsets.all(10),
-                          )
-                        ]);
-                      }).toList()
-                    ],
-                  )
+                  LayoutBuilder(builder: (p0, p1) {
+                    ;
+
+                    return Container(
+                      height: MediaQuery.of(context).size.height / 1.7,
+                      child: SingleChildScrollView(
+                        child: Table(
+                          border:
+                              TableBorder.all(color: Colors.black, width: 1.5),
+                          children: [
+                            TableRow(children: [
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: const Text(
+                                    "Product",
+                                    textAlign: TextAlign.center,
+                                  )),
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: const Text(
+                                    "Price",
+                                    textAlign: TextAlign.center,
+                                  )),
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: const Text(
+                                    "Quantity",
+                                    textAlign: TextAlign.center,
+                                  )),
+                              Container(
+                                  padding: const EdgeInsets.all(10),
+                                  child: const Text(
+                                    "Total",
+                                    textAlign: TextAlign.center,
+                                  )),
+                            ]),
+                            ...invoice.details!.map((e) {
+                              return TableRow(children: [
+                                Container(
+                                  // ignore: sort_child_properties_last
+                                  child: Text(
+                                    e.englishName!,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                ),
+                                Container(
+                                  child: Text(
+                                    "${e.price!.toStringAsFixed(2)} LE",
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                ),
+                                Container(
+                                  child: Text(
+                                    e.quantity!.toStringAsFixed(0),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                ),
+                                Container(
+                                  child: Text(
+                                    e.total.toString(),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  padding: EdgeInsets.all(10),
+                                )
+                              ]);
+                            }).toList()
+                          ],
+                        ),
+                      ),
+                    );
+                  })
                 ]),
               ))
         ]),
