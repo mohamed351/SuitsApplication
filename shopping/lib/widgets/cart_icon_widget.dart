@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/providers/cart_provider.dart';
@@ -15,7 +15,7 @@ class CartIconWidge extends StatefulWidget {
 class _CartIconWidgeState extends State<CartIconWidge> {
   @override
   Widget build(BuildContext context) {
-    return Badge(
+    return badges.Badge(
       badgeContent: FutureBuilder(
         future: Provider.of<CartProvider>(context, listen: true).GetCart(),
         builder: (context, snapshot) => Consumer<CartProvider>(
@@ -23,7 +23,7 @@ class _CartIconWidgeState extends State<CartIconWidge> {
               Text(value.itemsLength.toString()),
         ),
       ),
-      position: BadgePosition.topEnd(end: 2, top: 2),
+      position: badges.BadgePosition.topEnd(end: 2, top: 2),
       child: IconButton(
         icon: Icon(Icons.shopping_cart_rounded),
         onPressed: () {

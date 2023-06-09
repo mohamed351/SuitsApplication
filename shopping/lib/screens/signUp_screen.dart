@@ -64,7 +64,7 @@ class SignupScreen extends StatelessWidget {
                         ),
                         TextFieldWidget(
                             onSave: (String value) {
-                              this._signUp.pharamceyName = value;
+                              _signUp.pharamceyName = value;
                             },
                             validator: (String value) {
                               if (value.isEmpty) {
@@ -125,7 +125,7 @@ class SignupScreen extends StatelessWidget {
                               }
                               return null;
                             },
-                            icon: Icon(Icons.whatsapp,
+                            icon: Icon(Icons.whatshot_sharp,
                                 color: Constaint.textPrimaryColor),
                             obscureText: false,
                             currentLabel: "Phone :",

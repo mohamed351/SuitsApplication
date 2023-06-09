@@ -1,4 +1,5 @@
 {
     "cmake.sourceDirectory": "${workspaceFolder}/windows/flutter",
-    "liveServer.settings.port": 5758
+    "liveServer.settings.port": 5758,
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

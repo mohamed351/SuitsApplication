@@ -161,6 +161,7 @@ namespace WebShopping.Areas.API.Controllers
         }
 
 
+      
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult> GetProduct(int id)
@@ -191,6 +192,44 @@ namespace WebShopping.Areas.API.Controllers
 
             });
         }
+
+
+        // GET: api/Products/5
+        [HttpGet("{barCode}")]
+        public async Task<ActionResult> GetProductBarCode(string? barCode)
+        {
+            if(barCode == null)
+            {
+                return BadRequest();
+            }
+            var product = await _context.Products.Include(a => a.Carts).FirstOrDefaultAsync(a => a.BarCode == barCode);
+            var testing = User.GetUserId();
+            string host = httpContextAccessor.HttpContext!.Request.Host.Value;
+            string schema = httpContextAccessor.HttpContext.Request.Scheme;
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new
+            {
+                product.ID,
+                product.BrandID,
+                product.DescriptionArabic,
+                product.DescriptionEnglish,
+                product.EnglishName,
+                product.ArabicName,
+                ImageUrl = schema + "://" + host + "/api/Image/" + product.ImageUrl,
+                product.SellingPrice,
+                product.PurchasingPriceForPublic,
+                product.PurchasingPriceForSales,
+                product.SubCategoryID,
+                UserQuantity = product.Carts.FirstOrDefault() == null ? 0 : product.Carts.FirstOrDefault().Quantity
+
+            });
+        }
+
 
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

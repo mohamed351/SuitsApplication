@@ -18,6 +18,7 @@ import 'package:shopping/screens/signUp_screen.dart';
 import 'package:shopping/screens/splash_screen.dart';
 import "package:shopping/providers/invoice_provider.dart";
 import 'package:shopping/screens/sub_category_screen.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 // import 'package:shopping/screens/product_List_Screen_try.dart';
 void main() {
