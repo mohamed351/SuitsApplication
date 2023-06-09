@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>E:\Applications\Mobile Applicatiions\SuitsApplication\WebShopping\WebShopping\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2023-06-09T14:04:29.6718399Z;True|2023-06-09T17:04:00.0712254+03:00;True|2023-06-09T17:01:38.9847380+03:00;True|2023-06-02T00:01:40.0394311+03:00;True|2023-05-25T23:02:44.8197458+03:00;</History>
+    <History>True|2023-06-09T16:47:03.0830814Z;True|2023-06-09T19:46:21.6306463+03:00;True|2023-06-09T17:04:29.6718399+03:00;True|2023-06-09T17:04:00.0712254+03:00;True|2023-06-09T17:01:38.9847380+03:00;True|2023-06-02T00:01:40.0394311+03:00;True|2023-05-25T23:02:44.8197458+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
