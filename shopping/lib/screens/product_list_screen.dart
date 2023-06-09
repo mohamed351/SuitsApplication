@@ -49,6 +49,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Constaint.primaryColor,
       body: Container(
         height: 700,
         padding: EdgeInsets.only(top: 15),

@@ -11,9 +11,11 @@ import 'package:shopping/screens/cart_screen.dart';
 import 'package:shopping/screens/home_screen.dart';
 import 'package:shopping/screens/invoice_details_screen.dart';
 import 'package:shopping/screens/invoice_screen.dart';
+import 'package:shopping/screens/not_found_screen.dart';
 import 'package:shopping/screens/product_brand_screen.dart';
 import 'package:shopping/screens/product_details_screen.dart';
 import 'package:shopping/screens/product_list_screen.dart';
+import 'package:shopping/screens/product_search_screen.dart';
 import 'package:shopping/screens/signUp_screen.dart';
 import 'package:shopping/screens/splash_screen.dart';
 import "package:shopping/providers/invoice_provider.dart";
@@ -94,7 +96,10 @@ class MyApp extends StatelessWidget {
             ProductBrandListScreen.routerName: (context) =>
                 ProductBrandListScreen(),
             ProductSubCategoryScreen.routerName: (context) =>
-                ProductSubCategoryScreen()
+                ProductSubCategoryScreen(),
+            NotFound.routerName: (context) => NotFound(),
+            ProductListSearchScreen.routerName: (context) =>
+                ProductListSearchScreen()
           },
         ),
       ),

@@ -195,7 +195,7 @@ namespace WebShopping.Areas.API.Controllers
 
 
         // GET: api/Products/5
-        [HttpGet("{barCode}")]
+        [HttpGet("barCode/{barCode}")]
         public async Task<ActionResult> GetProductBarCode(string? barCode)
         {
             if(barCode == null)

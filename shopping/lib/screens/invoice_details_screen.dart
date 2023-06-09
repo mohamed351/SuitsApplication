@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/models/invoice_list.dart';
+import "package:intl/intl.dart";
 
 class InvoiceDetailsScreen extends StatelessWidget {
   static const routerName = "/invoice-detail";
@@ -72,11 +73,11 @@ class InvoiceDetailsScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Date",
-                            textAlign: TextAlign.left,
+                            textAlign: TextAlign.right,
                           ),
                           Text(
-                            "${invoice.invoiceDate}",
-                            textAlign: TextAlign.left,
+                            "${DateFormat.yMMMd().format(invoice.invoiceDate!)} ",
+                            textAlign: TextAlign.right,
                           ),
                           SizedBox(
                             height: 10,

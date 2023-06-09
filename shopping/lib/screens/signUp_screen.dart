@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping/models/signUp.dart';
 import 'package:shopping/providers/auth_provider.dart';
-import 'package:shopping/screens/auth_screen.dart';
 import 'package:shopping/widgets/button_widget.dart';
 import 'package:shopping/widgets/text_field_widget.dart';
 
@@ -56,12 +55,7 @@ class SignupScreen extends StatelessWidget {
                           "Sign up",
                           style: TextStyle(fontSize: 35),
                         ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        Image.asset("assets/images/logo.png", width: 100),
                         TextFieldWidget(
                             onSave: (String value) {
                               _signUp.pharamceyName = value;

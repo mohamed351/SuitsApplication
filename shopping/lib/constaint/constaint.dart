@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Constaint {
-  static const String baseURL = "http://192.168.60.1:9092";
+  static const String baseURL = "http://192.168.1.6:9092";
   // static const String baseURL = "http://192.168.1.2:9092";
   // static const String baseURL = "http://mohamed85223-001-site1.itempurl.com";
   static const Color primaryColor = Color(0xFF4C53A5);

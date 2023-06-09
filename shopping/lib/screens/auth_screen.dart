@@ -77,10 +77,8 @@ class _AuthScreenState extends State<AuthScreen> {
                           "Login",
                           style: TextStyle(fontSize: 35, fontFamily: "myfont"),
                         ),
+                        Image.asset("assets/images/logo.png", width: 150),
 
-                        const SizedBox(
-                          height: 120,
-                        ),
                         TextFieldWidget(
                             currentLabel: "Phone",
                             obscureText: false,

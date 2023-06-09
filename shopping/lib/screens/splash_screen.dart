@@ -7,12 +7,13 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black38,
+      backgroundColor: Colors.white,
       body: Container(
         width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset("assets/images/splash.png"),
             // Hero(tag: "logo", child:  Container( width: 400, child: Image(image: AssetImage("images/logo.png")))),
             CircularProgressIndicator()
           ],
